@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  dev:
+    container_name: nestjs_api_dev
+    image: nestjs-api-dev:1.0.0
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: npm run start:debug
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - nesjs-network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+  prod:
+    container_name: nestjs_api_prod
+    image: nestjs-api-prod:1.0.0
+    build:
+      context: .
+      target: production
+      dockerfile: ./Dockerfile
+    command: npm run start:prod
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - nesjs-network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - nesjs-network
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+        - 8080:8080
+    networks:
+      - nesjs-network
+
+networks:
+    nesjs-network:
+      driver: bridge
