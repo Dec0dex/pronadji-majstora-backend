@@ -1,0 +1,17 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run test
+          command: npm run test:cov
+workflows:
+  build-and-test:
+    jobs:
+      - build-and-test
