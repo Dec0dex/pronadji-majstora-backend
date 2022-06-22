@@ -16,13 +16,10 @@ jobs:
       - run:
           name: 'Run Test Coverage'
           command: npm run test:cov
-  upload-to-codecov:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - codecov/upload
+      - codecov/upload:
+          file: './coverage/clover.xml'
+          token: 01b99bf6-6768-462f-9202-0c837eacbf2d  
 workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - upload-to-codecov
