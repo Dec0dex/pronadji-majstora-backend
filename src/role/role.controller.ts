@@ -17,9 +17,9 @@ import {
   AppAbility,
   CheckPolicies,
   PermissionAction,
-} from 'src/auth/casl-ability.factory';
-import { PoliciesGuard } from 'src/auth/policies.guard';
-import { PageOptionsDto } from 'src/pagination/page-options.dto';
+} from '../auth/casl-ability.factory';
+import { PoliciesGuard } from '../auth/policies.guard';
+import { PageOptionsDto } from '../pagination/page-options.dto';
 import { AssignRolePermissionsQuery } from './asign-role-permissions.dto';
 import { AssignRoleUsersQuery } from './asign-role-users.dto';
 import { RoleDto } from './role.dto';

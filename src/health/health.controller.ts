@@ -1,14 +1,14 @@
-import { Controller, Get, UseGuards, Version } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import {
   HealthCheck,
   HealthCheckService,
   HttpHealthIndicator,
-  TypeOrmHealthIndicator
+  TypeOrmHealthIndicator,
 } from '@nestjs/terminus';
 import { ThrottlerGuard } from '@nestjs/throttler';
-import enviroment from 'env';
-import { Public } from 'src/auth/public.factory';
+import enviroment from '../../env';
+import { Public } from '../auth/public.factory';
 
 @Public()
 @Controller('health')

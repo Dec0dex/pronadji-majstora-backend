@@ -1,7 +1,7 @@
 import { Ability } from '@casl/ability';
 import { Injectable, SetMetadata } from '@nestjs/common';
-import { Permission } from 'src/permission/permission.entity';
-import { User } from 'src/user/user.entity';
+import { Permission } from '../permission/permission.entity';
+import { User } from '../user/user.entity';
 
 export enum PermissionAction {
   CREATE = 'create',
