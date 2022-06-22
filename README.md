@@ -57,11 +57,17 @@ $ npm run test:cov
 ```
 
 ## Documentation
+
+### To Serve Documentation locally
 ```bash
-npx @compodoc/compodoc -p tsconfig.json -s
+npm run documentation:serve
 ```
 After This command you should visit `http://localhost:8080` in order to look at code documentation page page
 
+### To Build Documentation
+```bash
+npm run documentation:build
+```
 Or visit swagger page after ruuning application on `http://localhost:3000:/api/docs`
 
 ## Working With Database Migrations

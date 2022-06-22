@@ -23,7 +23,9 @@
     "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -f src/config/postgres.config.ts -n",
     "migration:migrate": "ts-node ./node_modules/typeorm/cli.js migration:run -f src/config/postgres.config.ts",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -f src/config/postgres.config.ts",
-    "migration:show": "ts-node ./node_modules/typeorm/cli.js migration:show -f src/config/postgres.config.ts"
+    "migration:show": "ts-node ./node_modules/typeorm/cli.js migration:show -f src/config/postgres.config.ts",
+    "documentation:serve": "ts-node ./node_modules/@compodoc/compodoc/bin/index-cli.js -p tsconfig.json -s -d docs",
+    "documentation:build": "ts-node ./node_modules/@compodoc/compodoc/bin/index-cli.js -p tsconfig.json -d docs"
   },
   "dependencies": {
     "@casl/ability": "^5.4.4",
