@@ -9,7 +9,10 @@ jobs:
       - checkout
       - node/install-packages
       - run:
+          name: "Run Tests"
           command: npm run test
+      - run:
+          name: "Run Test Coverage"
           command: npm run test:cov
 workflows:
   build-and-test:

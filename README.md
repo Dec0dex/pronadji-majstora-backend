@@ -9,7 +9,7 @@
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/badge/npm-8.12.1-green" alt="NPM Version" /></a>
 <a href="https://www.pronadjimajstora.rs" target="_blank"><img src="https://img.shields.io/badge/license-EUPL%201.2-green" alt="Package License" /></a>
-<a href="https://www.pronadjimajstora.rs" target="_blank"><img src="" alt="CircleCI" /></a>
+<a href="https://app.circleci.com/pipelines/github/Dec0dex/pronadji-majstora-backend" target="_blank"><img src="https://img.shields.io/circleci/build/github/Dec0dex/pronadji-majstora-backend" alt="CircleCI" /></a>
 <a href="https://www.pronadjimajstora.rs" target="_blank"><img src="https://img.shields.io/codecov/c/github/Dec0dex/pronadji-majstora-backend" alt="Coverage" /></a>
 <a href="https://www.pronadjimajstora.rs" target="_blank"><img src="" alt="Discord"/></a>
 </p>
