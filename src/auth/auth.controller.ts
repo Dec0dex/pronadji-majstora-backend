@@ -4,10 +4,9 @@ import {
   Get,
   Inject,
   Post,
-  Headers,
+  Request,
   UseGuards,
   Version,
-  Request,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,

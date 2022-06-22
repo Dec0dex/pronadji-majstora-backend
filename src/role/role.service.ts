@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PageMetaDto } from 'src/pagination/page-meta.dto';
-import { PageOptionsDto } from 'src/pagination/page-options.dto';
-import { PageDto } from 'src/pagination/page.dto';
-import { Permission } from 'src/permission/permission.entity';
-import { User } from 'src/user/user.entity';
+import { PageMetaDto } from '../pagination/page-meta.dto';
+import { PageOptionsDto } from '../pagination/page-options.dto';
+import { PageDto } from '../pagination/page.dto';
+import { Permission } from '../permission/permission.entity';
+import { User } from '../user/user.entity';
 import { Repository } from 'typeorm';
 import { RoleDto } from './role.dto';
 import { Role } from './role.entity';
