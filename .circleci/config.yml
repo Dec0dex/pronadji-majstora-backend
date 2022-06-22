@@ -11,16 +11,20 @@ jobs:
       - node/install-packages:
           override-ci-command: npm install --legacy-peer-deps
       - run:
-          name: "Run Tests"
+          name: 'Run Tests'
           command: npm run test
       - run:
-          name: "Run Test Coverage"
+          name: 'Run Test Coverage'
           command: npm run test:cov
+  upload-to-codecov:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - codecov/upload
 workflows:
   build-and-test:
     jobs:
       - build-and-test
   upload-to-codecov:
     jobs:
-      - checkout
-      - codecov/upload
+      - upload-to-codecov
