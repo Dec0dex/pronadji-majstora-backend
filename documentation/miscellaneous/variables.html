@@ -67,7 +67,13 @@
                             <a href="#CheckPolicies" title="src/auth/casl-ability.factory.ts" ><b>CheckPolicies</b>&nbsp;&nbsp;&nbsp;(src/.../casl-ability.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#enviroment" title="dev.env.ts" ><b>enviroment</b>&nbsp;&nbsp;&nbsp;(dev.env.ts)</a>
+                        </li>
+                        <li>
                             <a href="#IS_PUBLIC_KEY" title="src/auth/public.factory.ts" ><b>IS_PUBLIC_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../public.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#postgressConfig" title="src/config/postgres.config.ts" ><b>postgressConfig</b>&nbsp;&nbsp;&nbsp;(src/.../postgres.config.ts)</a>
                         </li>
                         <li>
                             <a href="#Public" title="src/auth/public.factory.ts" ><b>Public</b>&nbsp;&nbsp;&nbsp;(src/.../public.factory.ts)</a>
@@ -129,6 +135,54 @@
         </tbody>
     </table>
 </section>
+    <h3>dev.env.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviroment"></a>
+                    <span class="name">
+                        <span ><b>enviroment</b></span>
+                        <a href="#enviroment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  APP_NAME: &#x27;PronadjiMajstora Backend&#x27;,
+  APP_DESCRIPTION: &#x27;Backend for PronadjiMajstora application&#x27;,
+  APP_VERSION: &#x27;1.0.0&#x27;,
+  APP_PORT: 3000,
+  APP_URL: &#x27;https://pronadjimajstora.rs&#x27;,
+  APP_MODE: &#x27;DEV&#x27;,
+  APP_DOCUMENTATION_PATH: &#x27;api/docs&#x27;,
+  RATE_LIMIT_LIFE: 60,
+  RATE_LIMIT: 40,
+  ACCESS_TOKEN_SECRET: &#x27;SuP3rS3cr3T0k3N&#x27;,
+  REFRESH_TOKEN_SECRET: &#x27;Sup3rR3fr3shT0k3nS3cr3T&#x27;,
+  ACCESS_TOKEN_EXPIRATION_TIME: 900,
+  REFRESH_TOKEN_EXPIRATION_TIME: 3600,
+  POSTGRES_HOST: &#x27;localhost&#x27;,
+  POSTGRES_PORT: 5432,
+  POSTGRES_USERNAME: &#x27;postgres&#x27;,
+  POSTGRES_PASSWORD: &#x27;postgres&#x27;,
+  POSTGRES_DATABASE: &#x27;pronadjimajstora&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/auth/public.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -171,6 +225,68 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>() &#x3D;&gt; SetMetadata(IS_PUBLIC_KEY, true)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/config/postgres.config.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postgressConfig"></a>
+                    <span class="name">
+                        <span ><b>postgressConfig</b></span>
+                        <a href="#postgressConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TypeOrmModuleOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  type: &#x27;postgres&#x27;,
+  host: enviroment.POSTGRES_HOST, // localhost
+  port: enviroment.POSTGRES_PORT, // 5432
+  username: enviroment.POSTGRES_USERNAME, // databse login role username
+  password: enviroment.POSTGRES_PASSWORD, // database login role password
+  database: enviroment.POSTGRES_DATABASE, // db name
+
+  // entities name should be **.entity.ts
+  entities: [&#x27;dist/src/**/*.entity.js&#x27;],
+
+  // We are using migrations, synchronize should be set to false.
+  // synchronize: process.env.TYPEORM_SYNCHRONIZE
+  //  ? process.env.TYPEORM_SYNCHRONIZE.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;true&#x27;
+  //  : false,
+  synchronize: false,
+
+  // Run migrations automatically,
+  // you can disable this if you prefer running migration manually.
+  migrationsRun: false,
+
+  logging: false,
+  // logger: &#x27;advanced-console&#x27;,
+
+  // Allow both start:prod and start:dev to use migrations
+  // __dirname is either dist or src folder, meaning either
+  // the compiled js in prod or the ts in dev.
+  migrations: [&#x27;dist/src/migrations/seed/*.js&#x27;, &#x27;dist/src/migrations/*.js&#x27;],
+  autoLoadEntities: true,
+  migrationsTableName: &#x27;migrations_typeorm&#x27;,
+  cli: {
+    migrationsDir: &#x27;src/migrations&#x27;,
+  },
+}</code>
                     </td>
                 </tr>
 

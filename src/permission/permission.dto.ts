@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { PermissionAction } from '../auth/casl-ability.factory';
+import { PermissionAction } from 'src/auth/casl-ability.factory';
 import { Permission } from './permission.entity';
 
 export class PermissionDto {

@@ -84,11 +84,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#login" >login</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
+                                <a href="#me" >me</a>
+                            </li>
+                            <li>
                                 <a href="#refreshToken" >refreshToken</a>
                             </li>
                         </ul>
@@ -114,7 +115,6 @@
                 <td class="col-md-4">
                     <a name="login"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
                         <span ><b>login</b></span>
                         <a href="#login"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -122,8 +122,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>login(loginDto: <a href="../classes/LoginDto.html" target="_self">LoginDto</a>)</code>
+<code>login(loginDto: <a href="../classes/LoginDto.html" target="_self">LoginDto</a>)</code>
                 </td>
             </tr>
 
@@ -137,8 +136,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/auth/auth.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/auth/auth.controller.ts:36</a></div>
                 </td>
             </tr>
 
@@ -176,7 +175,79 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TokenDto.html" target="_self" >Promise&lt;TokenDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="me"></a>
+                    <span class="name">
+                        <span ><b>me</b></span>
+                        <a href="#me"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>me(request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;me&#x27;)<br />@Version(&#x27;1&#x27;)<br />@ApiBearerAuth()<br />@UseGuards(JwtAuthGuard)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/auth/auth.controller.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>request</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -192,7 +263,6 @@
                 <td class="col-md-4">
                     <a name="refreshToken"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
                         <span ><b>refreshToken</b></span>
                         <a href="#refreshToken"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -200,8 +270,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>refreshToken(refreshTokenDto: <a href="../classes/RefreshTokenDto.html" target="_self">RefreshTokenDto</a>)</code>
+<code>refreshToken(refreshTokenDto: <a href="../classes/RefreshTokenDto.html" target="_self">RefreshTokenDto</a>)</code>
                 </td>
             </tr>
 
@@ -215,8 +284,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/auth/auth.controller.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/auth/auth.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -254,7 +323,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TokenDto.html" target="_self" >Promise&lt;TokenDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -271,22 +340,26 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Body,
   Controller,
+  Get,
   Inject,
   Post,
+  Headers,
   UseGuards,
   Version,
+  Request,
 } from &#x27;@nestjs/common&#x27;;
 import {
+  ApiBearerAuth,
   ApiForbiddenResponse,
   ApiTags,
   ApiUnauthorizedResponse,
 } from &#x27;@nestjs/swagger&#x27;;
 import { ThrottlerGuard } from &#x27;@nestjs/throttler&#x27;;
 import { AuthService } from &#x27;./auth.service&#x27;;
+import { JwtAuthGuard } from &#x27;./jwt-auth.guard&#x27;;
 import { LoginDto } from &#x27;./login.dto&#x27;;
 import { Public } from &#x27;./public.factory&#x27;;
 import { RefreshTokenDto } from &#x27;./refresh-token.dto&#x27;;
-import { TokenDto } from &#x27;./token.dto&#x27;;
 
 @Controller(&#x27;auth&#x27;)
 @UseGuards(ThrottlerGuard)
@@ -299,17 +372,23 @@ export class AuthController {
   @Post(&#x27;login&#x27;)
   @Version(&#x27;1&#x27;)
   @ApiUnauthorizedResponse({ description: &#x27;Wrong Credentials&#x27; })
-  async login(@Body() loginDto: LoginDto): Promise&lt;TokenDto&gt; {
+  login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }
 
   @Post(&#x27;refreshToken&#x27;)
   @Version(&#x27;1&#x27;)
   @ApiForbiddenResponse({ description: &#x27;Refresh Token is Invalid&#x27; })
-  async refreshToken(
-    @Body() refreshTokenDto: RefreshTokenDto,
-  ): Promise&lt;TokenDto&gt; {
+  refreshToken(@Body() refreshTokenDto: RefreshTokenDto) {
     return this.authService.refreshToken(refreshTokenDto);
+  }
+
+  @Get(&#x27;me&#x27;)
+  @Version(&#x27;1&#x27;)
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  me(@Request() request) {
+    return this.authService.getCurrentUser(request.headers.authorization);
   }
 }
 </code></pre>

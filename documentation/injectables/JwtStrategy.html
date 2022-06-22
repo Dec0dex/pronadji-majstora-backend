@@ -100,7 +100,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(configService: ConfigService)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
@@ -109,36 +109,6 @@
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>configService</td>
-                                                  
-                                                        <td>
-                                                                    <code>ConfigService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -226,23 +196,23 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
+import enviroment from &#x27;../../env&#x27;;
 import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(private readonly configService: ConfigService) {
+  constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: configService.get(&#x27;ACCESS_TOKEN_SECRET&#x27;),
-      issuer: configService.get(&#x27;APP_URL&#x27;),
+      secretOrKey: enviroment.ACCESS_TOKEN_SECRET,
+      issuer: enviroment.APP_URL,
     });
   }
 
   async validate(payload: any) {
-    return payload;
+    return payload.user;
   }
 }
 </code></pre>

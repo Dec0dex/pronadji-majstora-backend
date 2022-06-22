@@ -9,19 +9,17 @@ import {
   Put,
   Query,
   UseGuards,
-  Version
+  Version,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ThrottlerGuard } from '@nestjs/throttler';
-import {
-  CheckPolicies
-} from '../auth/casl-ability.factory';
+import { CheckPolicies } from '../auth/casl-ability.factory';
 import { PoliciesGuard } from '../auth/policies.guard';
 import {
   CreatePermissionPolicyHandler,
   DeletePermissionPolicyHandler,
   ReadPermissionPolicyHandler,
-  UpdatePermissionPolicyHandler
+  UpdatePermissionPolicyHandler,
 } from '../auth/policies/permission.policies';
 import { PageOptionsDto } from '../pagination/page-options.dto';
 import { PermissionDto } from './permission.dto';

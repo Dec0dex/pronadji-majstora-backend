@@ -179,9 +179,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Ability } from &#x27;@casl/ability&#x27;;
 import { Injectable, SetMetadata } from &#x27;@nestjs/common&#x27;;
-import { Permission } from &#x27;src/permission/permission.model&#x27;;
-import { User } from &#x27;src/user/user.model&#x27;;
-import { AuthService } from &#x27;./auth.service&#x27;;
+import { Permission } from &#x27;src/permission/permission.entity&#x27;;
+import { User } from &#x27;src/user/user.entity&#x27;;
 
 export enum PermissionAction {
   CREATE &#x3D; &#x27;create&#x27;,
@@ -216,7 +215,7 @@ export class CaslAbilityFactory {
   }
 }
 
-interface IPolicyHandler {
+export interface IPolicyHandler {
   handle(ability: AppAbility): boolean;
 }
 

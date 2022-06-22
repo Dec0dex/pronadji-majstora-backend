@@ -161,17 +161,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
 import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
-import { Address } from &#x27;src/address/address.model&#x27;;
-import { Permission } from &#x27;src/permission/permission.model&#x27;;
-import { Role } from &#x27;src/role/role.model&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
-import { User } from &#x27;./user.model&#x27;;
+import { Address } from &#x27;../address/address.entity&#x27;;
+import { Permission } from &#x27;../permission/permission.entity&#x27;;
+import { Role } from &#x27;../role/role.entity&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
 import { UserService } from &#x27;./user.service&#x27;;
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([User, Address, Role, Permission, Repository]),
-  ],
+  imports: [TypeOrmModule.forFeature([User, Address, Role, Permission])],
   providers: [UserService],
   exports: [UserService],
 })

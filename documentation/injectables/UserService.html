@@ -237,7 +237,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
-import { User } from &#x27;./user.model&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
 
 @Injectable()
 export class UserService {
@@ -247,9 +247,10 @@ export class UserService {
   async findByUsernameOrEmail(
     emailOrUsername: string,
   ): Promise&lt;User | undefined&gt; {
-    return this.userRepository.findOne({
+    const result &#x3D; this.userRepository.findOne({
       where: [{ email: emailOrUsername }, { username: emailOrUsername }],
     });
+    return result;
   }
 }
 </code></pre>

@@ -84,6 +84,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getCurrentUser" >getCurrentUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#login" >login</a>
                             </li>
                             <li>
@@ -113,7 +117,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, jwtService: JwtService, configService: ConfigService)</code>
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, jwtService: JwtService)</code>
                     </td>
                 </tr>
                         <tr>
@@ -152,18 +156,6 @@
                                                   
                                                         <td>
                                                                     <code>JwtService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>configService</td>
-                                                  
-                                                        <td>
-                                                                    <code>ConfigService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -260,6 +252,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getCurrentUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getCurrentUser</b></span>
+                        <a href="#getCurrentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCurrentUser(authHeader: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/auth/auth.service.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>authHeader</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/User.html" target="_self" >Promise&lt;User&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="login"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -278,8 +341,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/auth/auth.service.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/auth/auth.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -349,8 +412,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/auth/auth.service.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/auth/auth.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -421,8 +484,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/auth/auth.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/auth/auth.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -493,11 +556,11 @@
   Injectable,
   UnauthorizedException,
 } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { JwtService } from &#x27;@nestjs/jwt&#x27;;
-import { User } from &#x27;src/user/user.model&#x27;;
-import { UserService } from &#x27;src/user/user.service&#x27;;
-import { comparePasswords } from &#x27;src/util/bcrypt&#x27;;
+import enviroment from &#x27;../../env&#x27;;
+import { User } from &#x27;../user/user.entity&#x27;;
+import { UserService } from &#x27;../user/user.service&#x27;;
+import { comparePasswords } from &#x27;../util/bcrypt&#x27;;
 import { LoginDto } from &#x27;./login.dto&#x27;;
 import { RefreshTokenDto } from &#x27;./refresh-token.dto&#x27;;
 import { TokenDto } from &#x27;./token.dto&#x27;;
@@ -507,7 +570,6 @@ export class AuthService {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
-    private readonly configService: ConfigService,
   ) {}
 
   private async validateUser(
@@ -515,6 +577,7 @@ export class AuthService {
     password: string,
   ): Promise&lt;User | null&gt; {
     const user &#x3D; await this.userService.findByUsernameOrEmail(usernameOrEmail);
+    await user.roles;
     if (user &amp;&amp; comparePasswords(password, user.password)) {
       return user;
     } else {
@@ -524,16 +587,22 @@ export class AuthService {
 
   //TODO: Save refresh token in fast memory
   private generateNewToken(user: User) {
-    const access_token &#x3D; this.jwtService.sign(user, {
-      issuer: this.configService.get(&#x27;APP_URL&#x27;),
-      secret: this.configService.get(&#x27;ACCESS_TOKEN_SECRET&#x27;),
-      expiresIn: this.configService.get(&#x27;ACCESS_TOKEN_EXPIRATION_TIME&#x27;),
-    });
-    const refresh_token &#x3D; this.jwtService.sign(user, {
-      issuer: this.configService.get(&#x27;APP_URL&#x27;),
-      secret: this.configService.get(&#x27;ACCESS_TOKEN_SECRET&#x27;),
-      expiresIn: this.configService.get(&#x27;ACCESS_TOKEN_EXPIRATION_TIME&#x27;),
-    });
+    const access_token &#x3D; this.jwtService.sign(
+      { user },
+      {
+        issuer: enviroment.APP_URL,
+        secret: enviroment.ACCESS_TOKEN_SECRET,
+        expiresIn: enviroment.ACCESS_TOKEN_EXPIRATION_TIME,
+      },
+    );
+    const refresh_token &#x3D; this.jwtService.sign(
+      { user },
+      {
+        issuer: enviroment.APP_URL,
+        secret: enviroment.REFRESH_TOKEN_SECRET,
+        expiresIn: enviroment.REFRESH_TOKEN_EXPIRATION_TIME,
+      },
+    );
     return new TokenDto(access_token, refresh_token);
   }
 
@@ -554,15 +623,32 @@ export class AuthService {
     let result &#x3D; null;
     try {
       result &#x3D; this.jwtService.verify(dto.refresh_token, {
-        issuer: this.configService.get(&#x27;APP_URL&#x27;),
-        secret: this.configService.get(&#x27;ACCESS_TOKEN_SECRET&#x27;),
+        issuer: enviroment.APP_URL,
+        secret: enviroment.REFRESH_TOKEN_SECRET,
         ignoreExpiration: false,
       });
     } catch {}
     if (result) {
-      return this.generateNewToken(result);
+      return this.generateNewToken(result.user);
     } else {
       throw new ForbiddenException(&#x27;Invalid Refresh Token&#x27;);
+    }
+  }
+
+  async getCurrentUser(authHeader: string): Promise&lt;User&gt; {
+    const token &#x3D; authHeader.replace(&#x27;Bearer &#x27;, &#x27;&#x27;);
+    let result &#x3D; null;
+    try {
+      result &#x3D; this.jwtService.verify(token, {
+        issuer: enviroment.APP_URL,
+        secret: enviroment.ACCESS_TOKEN_SECRET,
+        ignoreExpiration: false,
+      });
+    } catch {}
+    if (result) {
+      return result.user;
+    } else {
+      throw new ForbiddenException(&#x27;Invalid JWT Token&#x27;);
     }
   }
 }

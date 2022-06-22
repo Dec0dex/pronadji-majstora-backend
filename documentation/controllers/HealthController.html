@@ -130,8 +130,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/health/health.controller.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/health/health.controller.ts:26</a></div>
                 </td>
             </tr>
 
@@ -151,16 +151,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, UseGuards } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, UseGuards, Version } from &#x27;@nestjs/common&#x27;;
+import { ApiBearerAuth, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import {
   HealthCheck,
   HealthCheckService,
   HttpHealthIndicator,
-  TypeOrmHealthIndicator,
+  TypeOrmHealthIndicator
 } from &#x27;@nestjs/terminus&#x27;;
 import { ThrottlerGuard } from &#x27;@nestjs/throttler&#x27;;
+import enviroment from &#x27;env&#x27;;
 import { Public } from &#x27;src/auth/public.factory&#x27;;
 
 @Public()
@@ -171,7 +171,6 @@ export class HealthController {
   constructor(
     private health: HealthCheckService,
     private http: HttpHealthIndicator,
-    private config: ConfigService,
     private db: TypeOrmHealthIndicator,
   ) {}
 
@@ -179,7 +178,7 @@ export class HealthController {
   @HealthCheck()
   check() {
     return this.health.check([
-      () &#x3D;&gt; this.http.pingCheck(&#x27;Basic Check&#x27;, this.config.get(&#x27;APP_URL&#x27;)),
+      () &#x3D;&gt; this.http.pingCheck(&#x27;Basic Check&#x27;, enviroment.APP_URL),
       () &#x3D;&gt; this.db.pingCheck(&#x27;postgres&#x27;),
     ]);
   }
