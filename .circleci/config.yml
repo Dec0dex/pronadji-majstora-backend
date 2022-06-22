@@ -25,6 +25,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-  upload-to-codecov:
-    jobs:
       - upload-to-codecov
