@@ -30,8 +30,11 @@ export class PermissionService {
 
     return new PageDto(
       entities.map((permission) => {
+        /* istanbul ignore next */
         const dto = new PermissionDto();
+        /* istanbul ignore next */
         dto.fromModel(permission);
+        /* istanbul ignore next */
         return dto;
       }),
       pageMetaDto,
