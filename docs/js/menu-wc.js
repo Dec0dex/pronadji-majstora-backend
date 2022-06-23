@@ -241,10 +241,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CreatePermissionPolicyHandler.html" data-type="entity-link" >CreatePermissionPolicyHandler</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CreateRolePolicyHandler.html" data-type="entity-link" >CreateRolePolicyHandler</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CreateUserDto.html" data-type="entity-link" >CreateUserDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/DeletePermissionPolicyHandler.html" data-type="entity-link" >DeletePermissionPolicyHandler</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/DeleteRolePolicyHandler.html" data-type="entity-link" >DeleteRolePolicyHandler</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LoginDto.html" data-type="entity-link" >LoginDto</a>
@@ -277,6 +283,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ReadPermissionPolicyHandler.html" data-type="entity-link" >ReadPermissionPolicyHandler</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ReadRolePolicyHandler.html" data-type="entity-link" >ReadRolePolicyHandler</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/RefreshTokenDto.html" data-type="entity-link" >RefreshTokenDto</a>
                             </li>
                             <li class="link">
@@ -296,6 +305,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UpdatePermissionPolicyHandler.html" data-type="entity-link" >UpdatePermissionPolicyHandler</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/UpdateRolePolicyHandler.html" data-type="entity-link" >UpdateRolePolicyHandler</a>
                             </li>
                         </ul>
                     </li>

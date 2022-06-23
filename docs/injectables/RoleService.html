@@ -169,8 +169,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/role/role.service.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/role/role.service.ts:90</a></div>
                 </td>
             </tr>
 
@@ -252,8 +252,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">src/role/role.service.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/role/role.service.ts:108</a></div>
                 </td>
             </tr>
 
@@ -335,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/role/role.service.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/role/role.service.ts:75</a></div>
                 </td>
             </tr>
 
@@ -406,8 +406,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/role/role.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/role/role.service.ts:64</a></div>
                 </td>
             </tr>
 
@@ -548,8 +548,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/role/role.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/role/role.service.ts:51</a></div>
                 </td>
             </tr>
 
@@ -619,8 +619,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">src/role/role.service.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/role/role.service.ts:82</a></div>
                 </td>
             </tr>
 
@@ -790,11 +790,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { PageMetaDto } from &#x27;src/pagination/page-meta.dto&#x27;;
-import { PageOptionsDto } from &#x27;src/pagination/page-options.dto&#x27;;
-import { PageDto } from &#x27;src/pagination/page.dto&#x27;;
-import { Permission } from &#x27;src/permission/permission.entity&#x27;;
-import { User } from &#x27;src/user/user.entity&#x27;;
+import { PageMetaDto } from &#x27;../pagination/page-meta.dto&#x27;;
+import { PageOptionsDto } from &#x27;../pagination/page-options.dto&#x27;;
+import { PageDto } from &#x27;../pagination/page.dto&#x27;;
+import { Permission } from &#x27;../permission/permission.entity&#x27;;
+import { User } from &#x27;../user/user.entity&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
 import { RoleDto } from &#x27;./role.dto&#x27;;
 import { Role } from &#x27;./role.entity&#x27;;
@@ -827,8 +827,11 @@ export class RoleService {
 
     return new PageDto(
       entities.map((role) &#x3D;&gt; {
+        /* istanbul ignore next */
         const dto &#x3D; new RoleDto();
+        /* istanbul ignore next */
         dto.fromModel(role);
+        /* istanbul ignore next */
         return dto;
       }),
       pageMetaDto,
@@ -880,24 +883,32 @@ export class RoleService {
       permissionIds,
     );
 
-    role.permissions &#x3D; permissions;
-    await this.roleRepository.save(role);
-    role &#x3D; await this.roleRepository.findOne(role.id);
-    const dto &#x3D; new RoleDto();
-    dto.fromModel(role);
-    return dto;
+    if (role &amp;&amp; permissions &amp;&amp; permissions.length &gt; 0) {
+      role.permissions &#x3D; permissions;
+      await this.roleRepository.save(role);
+      role &#x3D; await this.roleRepository.findOne(role.id);
+      const dto &#x3D; new RoleDto();
+      dto.fromModel(role);
+      return dto;
+    } else {
+      throw new NotFoundException();
+    }
   }
 
   async assignUsers(roleId: number, userIds: number[]) {
     let role &#x3D; await this.roleRepository.findOne(roleId);
     const users &#x3D; await this.userRepository.findByIds(userIds);
 
-    role.users &#x3D; users;
-    await this.roleRepository.save(role);
-    role &#x3D; await this.roleRepository.findOne(role.id);
-    const dto &#x3D; new RoleDto();
-    dto.fromModel(role);
-    return dto;
+    if (role &amp;&amp; users &amp;&amp; users.length &gt; 0) {
+      role.users &#x3D; users;
+      await this.roleRepository.save(role);
+      role &#x3D; await this.roleRepository.findOne(role.id);
+      const dto &#x3D; new RoleDto();
+      dto.fromModel(role);
+      return dto;
+    } else {
+      throw new NotFoundException();
+    }
   }
 }
 </code></pre>

@@ -151,17 +151,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, UseGuards, Version } from &#x27;@nestjs/common&#x27;;
-import { ApiBearerAuth, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, UseGuards } from &#x27;@nestjs/common&#x27;;
+import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import {
   HealthCheck,
   HealthCheckService,
   HttpHealthIndicator,
-  TypeOrmHealthIndicator
+  TypeOrmHealthIndicator,
 } from &#x27;@nestjs/terminus&#x27;;
 import { ThrottlerGuard } from &#x27;@nestjs/throttler&#x27;;
-import enviroment from &#x27;env&#x27;;
-import { Public } from &#x27;src/auth/public.factory&#x27;;
+import enviroment from &#x27;../../env&#x27;;
+import { Public } from &#x27;../auth/public.factory&#x27;;
 
 @Public()
 @Controller(&#x27;health&#x27;)

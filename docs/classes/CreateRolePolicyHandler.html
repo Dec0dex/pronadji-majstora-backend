@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -42,12 +42,9 @@
 
 
 
-
 <ol class="breadcrumb">
-  <li>Interfaces</li>
-  <li
-  >
-  IPolicyHandler</li>
+  <li>Classes</li>
+  <li >CreateRolePolicyHandler</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,36 +62,49 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/auth/casl-ability.factory.ts</code>
+            <code>src/auth/policies/role.policies.ts</code>
         </p>
 
 
 
 
-        <section>
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#handle" 
->
-                                        handle
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../interfaces/IPolicyHandler.html" target="_self" >IPolicyHandler</a></code>
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handle" >handle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
 
             <section>
     
@@ -121,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/auth/casl-ability.factory.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/auth/policies/role.policies.ts:15</a></div>
                 </td>
             </tr>
 
@@ -160,7 +170,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -172,62 +182,48 @@
     </table>
 </section>
 
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Ability } from &#x27;@casl/ability&#x27;;
-import { Injectable, SetMetadata } from &#x27;@nestjs/common&#x27;;
-import { Permission } from &#x27;../permission/permission.entity&#x27;;
-import { User } from &#x27;../user/user.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Role } from &#x27;../../role/role.entity&#x27;;
+import {
+  AppAbility,
+  IPolicyHandler,
+  PermissionAction,
+} from &#x27;../casl-ability.factory&#x27;;
 
-export enum PermissionAction {
-  CREATE &#x3D; &#x27;create&#x27;,
-  READ &#x3D; &#x27;read&#x27;,
-  UPDATE &#x3D; &#x27;update&#x27;,
-  DELETE &#x3D; &#x27;delete&#x27;,
-  MANAGE &#x3D; &#x27;manage&#x27;,
-}
-
-export type PermissionObjectType &#x3D; any;
-export type AppAbility &#x3D; Ability&lt;[PermissionAction, PermissionObjectType]&gt;;
-interface CaslPermission {
-  action: PermissionAction;
-  // In our database, Invoice, Project... are called &quot;object&quot;
-  // but in CASL they are called &quot;subject&quot;
-  subject: string;
-}
-@Injectable()
-export class CaslAbilityFactory {
-  async createForUser(user: User): Promise&lt;AppAbility&gt; {
-    const dbPermissions: Permission[] &#x3D; user.roles.reduce(
-      (acc, it) &#x3D;&gt; [...acc, ...it.permissions],
-      [],
-    );
-    const caslPermissions: CaslPermission[] &#x3D; dbPermissions.map((p) &#x3D;&gt; ({
-      action: p.action,
-      subject: p.resource,
-    }));
-    return new Ability&lt;[PermissionAction, PermissionObjectType]&gt;(
-      caslPermissions,
-    );
+export class ReadRolePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(PermissionAction.READ, Role);
   }
 }
 
-export interface IPolicyHandler {
-  handle(ability: AppAbility): boolean;
+export class CreateRolePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(PermissionAction.CREATE, Role);
+  }
 }
 
-type PolicyHandlerCallback &#x3D; (ability: AppAbility) &#x3D;&gt; boolean;
+export class UpdateRolePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(PermissionAction.UPDATE, Role);
+  }
+}
 
-export type PolicyHandler &#x3D; IPolicyHandler | PolicyHandlerCallback;
-
-export const CHECK_POLICIES_KEY &#x3D; &#x27;check_policy&#x27;;
-export const CheckPolicies &#x3D; (...handlers: PolicyHandler[]) &#x3D;&gt;
-  SetMetadata(CHECK_POLICIES_KEY, handlers);
+export class DeleteRolePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(PermissionAction.DELETE, Role);
+  }
+}
 </code></pre>
     </div>
 </div>
+
 
 
 
@@ -261,8 +257,8 @@ export const CheckPolicies &#x3D; (...handlers: PolicyHandler[]) &#x3D;&gt;
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IPolicyHandler.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateRolePolicyHandler.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

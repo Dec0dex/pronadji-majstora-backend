@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">src/permission/permission.service.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/permission/permission.service.ts:68</a></div>
                 </td>
             </tr>
 
@@ -224,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/permission/permission.service.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/permission/permission.service.ts:57</a></div>
                 </td>
             </tr>
 
@@ -366,8 +366,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/permission/permission.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/permission/permission.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -437,8 +437,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/permission/permission.service.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/permission/permission.service.ts:77</a></div>
                 </td>
             </tr>
 
@@ -566,8 +566,11 @@ export class PermissionService {
 
     return new PageDto(
       entities.map((permission) &#x3D;&gt; {
+        /* istanbul ignore next */
         const dto &#x3D; new PermissionDto();
+        /* istanbul ignore next */
         dto.fromModel(permission);
+        /* istanbul ignore next */
         return dto;
       }),
       pageMetaDto,
