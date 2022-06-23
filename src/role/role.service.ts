@@ -37,8 +37,11 @@ export class RoleService {
 
     return new PageDto(
       entities.map((role) => {
+        /* istanbul ignore next */
         const dto = new RoleDto();
+        /* istanbul ignore next */
         dto.fromModel(role);
+        /* istanbul ignore next */
         return dto;
       }),
       pageMetaDto,
@@ -90,23 +93,31 @@ export class RoleService {
       permissionIds,
     );
 
-    role.permissions = permissions;
-    await this.roleRepository.save(role);
-    role = await this.roleRepository.findOne(role.id);
-    const dto = new RoleDto();
-    dto.fromModel(role);
-    return dto;
+    if (role && permissions && permissions.length > 0) {
+      role.permissions = permissions;
+      await this.roleRepository.save(role);
+      role = await this.roleRepository.findOne(role.id);
+      const dto = new RoleDto();
+      dto.fromModel(role);
+      return dto;
+    } else {
+      throw new NotFoundException();
+    }
   }
 
   async assignUsers(roleId: number, userIds: number[]) {
     let role = await this.roleRepository.findOne(roleId);
     const users = await this.userRepository.findByIds(userIds);
 
-    role.users = users;
-    await this.roleRepository.save(role);
-    role = await this.roleRepository.findOne(role.id);
-    const dto = new RoleDto();
-    dto.fromModel(role);
-    return dto;
+    if (role && users && users.length > 0) {
+      role.users = users;
+      await this.roleRepository.save(role);
+      role = await this.roleRepository.findOne(role.id);
+      const dto = new RoleDto();
+      dto.fromModel(role);
+      return dto;
+    } else {
+      throw new NotFoundException();
+    }
   }
 }
