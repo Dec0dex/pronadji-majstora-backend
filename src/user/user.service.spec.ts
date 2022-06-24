@@ -5,7 +5,12 @@ import { UserService } from './user.service';
 
 describe('UserService', () => {
   let service: UserService;
-  const mockedUsersRepository = {};
+  const mockedUsersRepository = {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    findOne: jest.fn((_parms: any) => {
+      return new User();
+    }),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -23,5 +28,10 @@ describe('UserService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should find user by username or email', async () => {
+    expect(await service.findByUsernameOrEmail('admin')).toEqual(new User());
+    expect(mockedUsersRepository.findOne).toHaveBeenCalled();
   });
 });

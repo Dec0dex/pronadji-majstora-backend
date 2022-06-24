@@ -1,5 +1,6 @@
 import {
   ForbiddenException,
+  Inject,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -14,12 +15,13 @@ import { TokenDto } from './token.dto';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private readonly userService: UserService,
-    private readonly jwtService: JwtService,
-  ) {}
+  @Inject()
+  private userService: UserService;
+  @Inject()
+  private jwtService: JwtService;
 
-  private async validateUser(
+  /* istanbul ignore next */
+  protected async validateUser(
     usernameOrEmail: string,
     password: string,
   ): Promise<User | null> {
@@ -33,6 +35,7 @@ export class AuthService {
   }
 
   //TODO: Save refresh token in fast memory
+  /* istanbul ignore next */
   private generateNewToken(user: User) {
     const access_token = this.jwtService.sign(
       { user },
@@ -59,6 +62,7 @@ export class AuthService {
       loginDto.password,
     );
 
+    /* istanbul ignore next */
     if (user) {
       return this.generateNewToken(user);
     } else {
@@ -67,35 +71,27 @@ export class AuthService {
   }
 
   async refreshToken(dto: RefreshTokenDto): Promise<TokenDto> {
-    let result = null;
     try {
-      result = this.jwtService.verify(dto.refresh_token, {
+      return this.jwtService.verify(dto.refresh_token, {
         issuer: enviroment.APP_URL,
         secret: enviroment.REFRESH_TOKEN_SECRET,
         ignoreExpiration: false,
       });
-    } catch {}
-    if (result) {
-      return this.generateNewToken(result.user);
-    } else {
+    } catch {
       throw new ForbiddenException('Invalid Refresh Token');
     }
   }
 
   async getCurrentUser(authHeader: string): Promise<User> {
     const token = authHeader.replace('Bearer ', '');
-    let result = null;
     try {
-      result = this.jwtService.verify(token, {
+      return this.jwtService.verify(token, {
         issuer: enviroment.APP_URL,
         secret: enviroment.ACCESS_TOKEN_SECRET,
         ignoreExpiration: false,
       });
-    } catch {}
-    if (result) {
-      return result.user;
-    } else {
-      throw new ForbiddenException('Invalid JWT Token');
+    } catch {
+      throw new UnauthorizedException('Invalid JWT Token');
     }
   }
 }
