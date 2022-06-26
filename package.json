@@ -103,7 +103,10 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/migrations",
       "<rootDir>/config",
-      "<rootDir>/auth/policies"
+      "<rootDir>/auth/policies",
+      ".module.ts$",
+      ".spec.ts$",
+      "main.ts$"
     ]
   }
 }
