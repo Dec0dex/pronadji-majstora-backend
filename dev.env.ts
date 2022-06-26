@@ -1,3 +1,6 @@
+/**
+ * Constant that represents object that holds all the enviroment variables for development enviroment
+ */
 const enviroment = {
   APP_NAME: 'PronadjiMajstora Backend',
   APP_DESCRIPTION: 'Backend for PronadjiMajstora application',
