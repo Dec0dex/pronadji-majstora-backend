@@ -106,7 +106,9 @@
       "<rootDir>/auth/policies",
       ".module.ts$",
       ".spec.ts$",
-      "main.ts$"
+      "main.ts$",
+      ".entity.ts$",
+      ".dto.ts$"
     ]
   }
 }
