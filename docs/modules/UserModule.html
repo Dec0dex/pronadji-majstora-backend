@@ -129,6 +129,14 @@
 
 
 
+        <p class="comment">
+            <h3>Description</h3>
+        </p>
+        <p class="comment">
+            <p>This class is a module that imports the TypeOrmModule.forFeature() method, which is a method that
+takes an array of entities as an argument</p>
+
+        </p>
 
 
         <div class="container-fluid module">
@@ -167,6 +175,8 @@ import { Role } from &#x27;../role/role.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
 import { UserService } from &#x27;./user.service&#x27;;
 
+/** This class is a module that imports the TypeOrmModule.forFeature() method, which is a method that
+takes an array of entities as an argument */
 @Module({
   imports: [TypeOrmModule.forFeature([User, Address, Role, Permission])],
   providers: [UserService],

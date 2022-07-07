@@ -66,6 +66,13 @@
             </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a public REST controller that checks the health of the application</p>
+
+            </p>
 
 
 
@@ -130,17 +137,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/health/health.controller.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/health/health.controller.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The function returns a promise that resolves to an array of health check results</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>An array of promises.</p>
 
                     </div>
                 </td>
@@ -163,6 +178,7 @@ import { ThrottlerGuard } from &#x27;@nestjs/throttler&#x27;;
 import enviroment from &#x27;../../env&#x27;;
 import { Public } from &#x27;../auth/public.factory&#x27;;
 
+/** It&#x27;s a public REST controller that checks the health of the application */
 @Public()
 @Controller(&#x27;health&#x27;)
 @ApiTags(&#x27;health&#x27;)
@@ -174,6 +190,10 @@ export class HealthController {
     private db: TypeOrmHealthIndicator,
   ) {}
 
+  /**
+   * The function returns a promise that resolves to an array of health check results
+   * @returns An array of promises.
+   */
   @Get()
   @HealthCheck()
   check() {

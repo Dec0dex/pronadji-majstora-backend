@@ -9,17 +9,26 @@ import { Repository } from 'typeorm';
 import { RoleDto } from './role.dto';
 import { Role } from './role.entity';
 
+/** It's a service class that provides methods for CRUD operations on the Role entity */
 @Injectable()
 export class RoleService {
+  /** It's a TypeORM repository that provides methods for CRUD operations on the Role entity. */
   @InjectRepository(Role)
   private roleRepository: Repository<Role>;
 
+  /** It's a TypeORM repository that provides methods for CRUD operations on the Permission entity. */
   @InjectRepository(Permission)
   private permissionRepository: Repository<Permission>;
 
+  /** It's a TypeORM repository that provides methods for CRUD operations on the User entity. */
   @InjectRepository(User)
   private userRepository: Repository<User>;
 
+  /**
+   * It returns a page of roles
+   * @param {PageOptionsDto} pageOptionsDto - PageOptionsDto
+   * @returns A PageDto object
+   */
   async findAllRolesPageable(
     pageOptionsDto: PageOptionsDto,
   ): Promise<PageDto<RoleDto>> {
@@ -48,6 +57,12 @@ export class RoleService {
     );
   }
 
+  /**
+   * It finds a role by id, and if it exists, it returns a RoleDto object, otherwise it throws a
+   * NotFoundException
+   * @param {number} id - number - the id of the role we want to find
+   * @returns A RoleDto object
+   */
   async findRoleById(id: number): Promise<RoleDto> {
     const result = await this.roleRepository.findOne(id);
     if (result) {
@@ -61,6 +76,11 @@ export class RoleService {
     }
   }
 
+  /**
+   * It finds a role by id, if it exists, it deletes it, if it doesn't exist, it throws an error
+   * @param {number} id - number - The id of the role to be deleted
+   * @returns The result of the delete operation.
+   */
   async deleteRoleById(id: number) {
     const result = await this.roleRepository.findOne(id);
     if (result) {
@@ -72,6 +92,12 @@ export class RoleService {
     }
   }
 
+  /**
+   * It takes a RoleDto, converts it to a Role model, saves it to the database, converts it back to a
+   * RoleDto, and returns it
+   * @param {RoleDto} roleDto - RoleDto - This is the DTO that will be passed in from the client.
+   * @returns A RoleDto object
+   */
   async createRole(roleDto: RoleDto): Promise<RoleDto> {
     const role = await this.roleRepository.save(roleDto.toModel());
     const dto = new RoleDto();
@@ -79,6 +105,11 @@ export class RoleService {
     return dto;
   }
 
+  /**
+   * It takes a RoleDto, saves it to the database, then returns a RoleDto
+   * @param {RoleDto} roleDto - RoleDto - This is the DTO that we're going to use to update the role.
+   * @returns A RoleDto
+   */
   async updateRole(roleDto: RoleDto): Promise<RoleDto> {
     await this.roleRepository.save(roleDto.toModel());
     const role = await this.roleRepository.findOne(roleDto.id);
@@ -87,6 +118,13 @@ export class RoleService {
     return dto;
   }
 
+  /**
+   * It takes a roleId and an array of permissionIds, finds the role and permissions, assigns the
+   * permissions to the role, saves the role, and returns the role
+   * @param {number} roleId - The id of the role to assign permissions to.
+   * @param {number[]} permissionIds - number[]
+   * @returns A RoleDto
+   */
   async assignPermissions(roleId: number, permissionIds: number[]) {
     let role = await this.roleRepository.findOne(roleId);
     const permissions = await this.permissionRepository.findByIds(
@@ -105,6 +143,13 @@ export class RoleService {
     }
   }
 
+  /**
+   * It takes a roleId and an array of userIds, finds the role and users, assigns the
+   * users to the role, saves the role, and returns the role
+   * @param {number} roleId - The id of the role to assign users to.
+   * @param {number[]} userIds - number[]
+   * @returns A RoleDto object
+   */
   async assignUsers(roleId: number, userIds: number[]) {
     let role = await this.roleRepository.findOne(roleId);
     const users = await this.userRepository.findByIds(userIds);

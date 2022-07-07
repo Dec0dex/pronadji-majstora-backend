@@ -10,6 +10,7 @@ import { ThrottlerGuard } from '@nestjs/throttler';
 import enviroment from '../../env';
 import { Public } from '../auth/public.factory';
 
+/** It's a public REST controller that checks the health of the application */
 @Public()
 @Controller('health')
 @ApiTags('health')
@@ -21,6 +22,10 @@ export class HealthController {
     private db: TypeOrmHealthIndicator,
   ) {}
 
+  /**
+   * The function returns a promise that resolves to an array of health check results
+   * @returns An array of promises.
+   */
   @Get()
   @HealthCheck()
   check() {

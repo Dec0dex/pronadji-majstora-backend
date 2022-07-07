@@ -25,6 +25,7 @@ import { PageOptionsDto } from '../pagination/page-options.dto';
 import { PermissionDto } from './permission.dto';
 import { PermissionService } from './permission.service';
 
+/** This class is a REST controller that handles all the CRUD operations for the Permission entity */
 @Controller('permission')
 @ApiTags('permission')
 @UseGuards(PoliciesGuard)
@@ -34,6 +35,7 @@ export class PermissionController {
   @Inject()
   private permissionService: PermissionService;
 
+  /** This is a method that is called when a GET request is made to the /permission endpoint. */
   @Get()
   @Version('1')
   @CheckPolicies(new ReadPermissionPolicyHandler())
@@ -41,6 +43,7 @@ export class PermissionController {
     return this.permissionService.findAllPermissionsPageable(pageOptionsDto);
   }
 
+  /** This is a method that is called when a GET request is made to the /permission/:id endpoint. */
   @Get(':id')
   @Version('1')
   @CheckPolicies(new ReadPermissionPolicyHandler())
@@ -48,6 +51,7 @@ export class PermissionController {
     return this.permissionService.findPermissionById(id);
   }
 
+  /** This is a method that is called when a DELETE request is made to the /permission/:id endpoint. */
   @Delete(':id')
   @Version('1')
   @CheckPolicies(new DeletePermissionPolicyHandler())
@@ -55,6 +59,7 @@ export class PermissionController {
     return this.permissionService.deletePermissionById(id);
   }
 
+  /** This is a method that is called when a POST request is made to the /permission endpoint. */
   @Post()
   @Version('1')
   @CheckPolicies(new CreatePermissionPolicyHandler())
@@ -62,6 +67,7 @@ export class PermissionController {
     return this.permissionService.createPermission(permissionDto);
   }
 
+  /** Updating the permission. */
   @Put()
   @Version('1')
   @CheckPolicies(new UpdatePermissionPolicyHandler())

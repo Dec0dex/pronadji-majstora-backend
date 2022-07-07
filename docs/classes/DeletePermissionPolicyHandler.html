@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>If the user has the DELETE permission on the Permission resource, then they can delete a permission.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -131,14 +138,22 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/auth/policies/permission.policies.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/auth/policies/permission.policies.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>&quot;If the user has the ability to delete a Permission, then they can delete a Permission.&quot;</p>
+<p>The <code>can</code> function takes two parameters:</p>
+<ol>
+<li>The action that the user is trying to perform.</li>
+<li>The resource that the user is trying to perform the action on
+function.</li>
+</ol>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -149,6 +164,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -163,6 +179,13 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>AppAbility - This is the ability object that is passed to the can
+function.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -174,7 +197,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A boolean value.</p>
+
                     </div>
                 </td>
             </tr>
@@ -197,25 +221,67 @@ import {
   PermissionAction,
 } from &#x27;../casl-ability.factory&#x27;;
 
+/** &quot;If the user has the READ permission on the Permission resource, then they can read the Permission
+resource.&quot;
+
+The &#x60;handle&#x60; method is called by the &#x60;can&#x60; method of the &#x60;AppAbility&#x60; class. The &#x60;handle&#x60; method is
+passed the &#x60;AppAbility&#x60; instance. The &#x60;handle&#x60; method returns a boolean value. If the value is true,
+then the user has the permission. If the value is false, then the user does not have the permission */
 export class ReadPermissionPolicyHandler implements IPolicyHandler {
+  /**
+   * If the user has the ability to read the Permission model, then they can read the Permission model
+   * @param {AppAbility} ability - AppAbility - The ability object that is passed to the can function.
+   * @returns A boolean value.
+   */
   handle(ability: AppAbility) {
     return ability.can(PermissionAction.READ, Permission);
   }
 }
 
+/** If the user has the ability to create a permission, then they can create a permission. */
 export class CreatePermissionPolicyHandler implements IPolicyHandler {
+  /**
+   * &quot;If the user has the ability to create a Permission, then they can create a Permission.&quot;
+   *
+   * The above function is a good example of how to use the &#x60;can&#x60; function. The &#x60;can&#x60; function takes
+   * two parameters:
+   *
+   * 1. The action that the user is trying to perform.
+   * 2. The resource that the user is trying to perform the action on
+   * @param {AppAbility} ability - AppAbility - The ability object that is passed to the can() method.
+   * @returns A boolean value.
+   */
   handle(ability: AppAbility) {
     return ability.can(PermissionAction.CREATE, Permission);
   }
 }
 
+/** If the user has the UPDATE permission on the Permission resource, then they can update permissions. */
 export class UpdatePermissionPolicyHandler implements IPolicyHandler {
+  /**
+   * If the user has the ability to update permissions, then they can update permissions
+   * @param {AppAbility} ability - AppAbility - This is the ability class that you created in the
+   * previous step.
+   * @returns A boolean value.
+   */
   handle(ability: AppAbility) {
     return ability.can(PermissionAction.UPDATE, Permission);
   }
 }
 
+/** If the user has the DELETE permission on the Permission resource, then they can delete a permission. */
 export class DeletePermissionPolicyHandler implements IPolicyHandler {
+  /**
+   * &quot;If the user has the ability to delete a Permission, then they can delete a Permission.&quot;
+   *
+   * The &#x60;can&#x60; function takes two parameters:
+   *
+   * 1. The action that the user is trying to perform.
+   * 2. The resource that the user is trying to perform the action on
+   * @param {AppAbility} ability - AppAbility - This is the ability object that is passed to the can
+   * function.
+   * @returns A boolean value.
+   */
   handle(ability: AppAbility) {
     return ability.can(PermissionAction.DELETE, Permission);
   }

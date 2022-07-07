@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a service class that provides methods for CRUD operations on the Role entity</p>
+
+            </p>
 
 
 
@@ -169,14 +176,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">src/role/role.service.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/role/role.service.ts:128</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a roleId and an array of permissionIds, finds the role and permissions, assigns the
+permissions to the role, saves the role, and returns the role</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -187,6 +197,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -201,6 +212,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The id of the role to assign permissions to.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>permissionIds</td>
@@ -213,6 +230,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>number[]</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -224,7 +247,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A RoleDto</p>
+
                     </div>
                 </td>
             </tr>
@@ -252,14 +276,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">src/role/role.service.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/role/role.service.ts:153</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a roleId and an array of userIds, finds the role and users, assigns the
+users to the role, saves the role, and returns the role</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -270,6 +297,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -284,6 +312,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The id of the role to assign users to.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>userIds</td>
@@ -296,6 +330,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>number[]</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -307,7 +347,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A RoleDto object</p>
+
                     </div>
                 </td>
             </tr>
@@ -335,14 +376,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">src/role/role.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/role/role.service.ts:101</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a RoleDto, converts it to a Role model, saves it to the database, converts it back to a
+RoleDto, and returns it</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -353,6 +397,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -367,6 +412,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>RoleDto - This is the DTO that will be passed in from the client.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -378,7 +429,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A RoleDto object</p>
+
                     </div>
                 </td>
             </tr>
@@ -406,14 +458,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/role/role.service.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/role/role.service.ts:84</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It finds a role by id, if it exists, it deletes it, if it doesn&#39;t exist, it throws an error</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -424,6 +478,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -438,6 +493,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>number - The id of the role to be deleted</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -449,7 +510,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The result of the delete operation.</p>
+
                     </div>
                 </td>
             </tr>
@@ -477,14 +539,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/role/role.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/role/role.service.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It returns a page of roles</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -495,6 +559,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -509,6 +574,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>PageOptionsDto</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -520,7 +591,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A PageDto object</p>
+
                     </div>
                 </td>
             </tr>
@@ -548,14 +620,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/role/role.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/role/role.service.ts:66</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It finds a role by id, and if it exists, it returns a RoleDto object, otherwise it throws a
+NotFoundException</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -566,6 +641,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -580,6 +656,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>number - the id of the role we want to find</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -591,7 +673,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A RoleDto object</p>
+
                     </div>
                 </td>
             </tr>
@@ -619,14 +702,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">src/role/role.service.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/role/role.service.ts:113</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a RoleDto, saves it to the database, then returns a RoleDto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -637,6 +722,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -651,6 +737,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>RoleDto - This is the DTO that we&#39;re going to use to update the role.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -662,7 +754,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A RoleDto</p>
+
                     </div>
                 </td>
             </tr>
@@ -703,10 +796,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/role/role.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/role/role.service.ts:21</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a TypeORM repository that provides methods for CRUD operations on the Permission entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -739,10 +838,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/role/role.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/role/role.service.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a TypeORM repository that provides methods for CRUD operations on the Role entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -775,10 +880,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/role/role.service.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/role/role.service.ts:25</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a TypeORM repository that provides methods for CRUD operations on the User entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -799,17 +910,26 @@ import { Repository } from &#x27;typeorm&#x27;;
 import { RoleDto } from &#x27;./role.dto&#x27;;
 import { Role } from &#x27;./role.entity&#x27;;
 
+/** It&#x27;s a service class that provides methods for CRUD operations on the Role entity */
 @Injectable()
 export class RoleService {
+  /** It&#x27;s a TypeORM repository that provides methods for CRUD operations on the Role entity. */
   @InjectRepository(Role)
   private roleRepository: Repository&lt;Role&gt;;
 
+  /** It&#x27;s a TypeORM repository that provides methods for CRUD operations on the Permission entity. */
   @InjectRepository(Permission)
   private permissionRepository: Repository&lt;Permission&gt;;
 
+  /** It&#x27;s a TypeORM repository that provides methods for CRUD operations on the User entity. */
   @InjectRepository(User)
   private userRepository: Repository&lt;User&gt;;
 
+  /**
+   * It returns a page of roles
+   * @param {PageOptionsDto} pageOptionsDto - PageOptionsDto
+   * @returns A PageDto object
+   */
   async findAllRolesPageable(
     pageOptionsDto: PageOptionsDto,
   ): Promise&lt;PageDto&lt;RoleDto&gt;&gt; {
@@ -838,6 +958,12 @@ export class RoleService {
     );
   }
 
+  /**
+   * It finds a role by id, and if it exists, it returns a RoleDto object, otherwise it throws a
+   * NotFoundException
+   * @param {number} id - number - the id of the role we want to find
+   * @returns A RoleDto object
+   */
   async findRoleById(id: number): Promise&lt;RoleDto&gt; {
     const result &#x3D; await this.roleRepository.findOne(id);
     if (result) {
@@ -851,6 +977,11 @@ export class RoleService {
     }
   }
 
+  /**
+   * It finds a role by id, if it exists, it deletes it, if it doesn&#x27;t exist, it throws an error
+   * @param {number} id - number - The id of the role to be deleted
+   * @returns The result of the delete operation.
+   */
   async deleteRoleById(id: number) {
     const result &#x3D; await this.roleRepository.findOne(id);
     if (result) {
@@ -862,6 +993,12 @@ export class RoleService {
     }
   }
 
+  /**
+   * It takes a RoleDto, converts it to a Role model, saves it to the database, converts it back to a
+   * RoleDto, and returns it
+   * @param {RoleDto} roleDto - RoleDto - This is the DTO that will be passed in from the client.
+   * @returns A RoleDto object
+   */
   async createRole(roleDto: RoleDto): Promise&lt;RoleDto&gt; {
     const role &#x3D; await this.roleRepository.save(roleDto.toModel());
     const dto &#x3D; new RoleDto();
@@ -869,6 +1006,11 @@ export class RoleService {
     return dto;
   }
 
+  /**
+   * It takes a RoleDto, saves it to the database, then returns a RoleDto
+   * @param {RoleDto} roleDto - RoleDto - This is the DTO that we&#x27;re going to use to update the role.
+   * @returns A RoleDto
+   */
   async updateRole(roleDto: RoleDto): Promise&lt;RoleDto&gt; {
     await this.roleRepository.save(roleDto.toModel());
     const role &#x3D; await this.roleRepository.findOne(roleDto.id);
@@ -877,6 +1019,13 @@ export class RoleService {
     return dto;
   }
 
+  /**
+   * It takes a roleId and an array of permissionIds, finds the role and permissions, assigns the
+   * permissions to the role, saves the role, and returns the role
+   * @param {number} roleId - The id of the role to assign permissions to.
+   * @param {number[]} permissionIds - number[]
+   * @returns A RoleDto
+   */
   async assignPermissions(roleId: number, permissionIds: number[]) {
     let role &#x3D; await this.roleRepository.findOne(roleId);
     const permissions &#x3D; await this.permissionRepository.findByIds(
@@ -895,6 +1044,13 @@ export class RoleService {
     }
   }
 
+  /**
+   * It takes a roleId and an array of userIds, finds the role and users, assigns the
+   * users to the role, saves the role, and returns the role
+   * @param {number} roleId - The id of the role to assign users to.
+   * @param {number[]} userIds - number[]
+   * @returns A RoleDto object
+   */
   async assignUsers(roleId: number, userIds: number[]) {
     let role &#x3D; await this.roleRepository.findOne(roleId);
     const users &#x3D; await this.userRepository.findByIds(userIds);

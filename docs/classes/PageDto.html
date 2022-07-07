@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a generic class that takes an array of data and a PageMetaDto object</p>
+
+            </p>
 
 
 
@@ -114,12 +121,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/pagination/page.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/pagination/page.dto.ts:14</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor function takes in two parameters, data and meta, and sets the data and meta
+properties of the class to the values of the parameters.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -128,6 +138,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -142,6 +153,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>T[] - the data that is returned from the API</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>meta</td>
@@ -154,6 +171,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>PageMetaDto</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -198,10 +221,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/pagination/page.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/pagination/page.dto.ts:10</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data property of the class.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -234,10 +263,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/pagination/page.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/pagination/page.dto.ts:14</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property of the class that is of type PageMetaDto.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -257,14 +292,23 @@
 import { IsArray } from &#x27;class-validator&#x27;;
 import { PageMetaDto } from &#x27;./page-meta.dto&#x27;;
 
+/** It&#x27;s a generic class that takes an array of data and a PageMetaDto object */
 export class PageDto&lt;T&gt; {
+  /** It&#x27;s a decorator that is used to validate the data property of the class. */
   @IsArray()
   @ApiProperty({ isArray: true })
   readonly data: T[];
 
+  /** It&#x27;s a property of the class that is of type PageMetaDto. */
   @ApiProperty({ type: () &#x3D;&gt; PageMetaDto })
   readonly meta: PageMetaDto;
 
+  /**
+   * The constructor function takes in two parameters, data and meta, and sets the data and meta
+   * properties of the class to the values of the parameters.
+   * @param {T[]} data - T[] - the data that is returned from the API
+   * @param {PageMetaDto} meta - PageMetaDto
+   */
   constructor(data: T[], meta: PageMetaDto) {
     this.data &#x3D; data;
     this.meta &#x3D; meta;

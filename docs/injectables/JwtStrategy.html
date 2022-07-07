@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a PassportStrategy that uses the JWT strategy to validate the token</p>
+
+            </p>
 
 
 
@@ -105,10 +112,17 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/jwt.strategy.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/jwt.strategy.ts:8</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>It takes the token from the request header, checks if it&#39;s valid, and if it is, it returns the
+user&#39;s id</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -140,14 +154,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/auth/jwt.strategy.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/auth/jwt.strategy.ts:29</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>&quot;If the payload is valid, return the user object, otherwise throw an error.&quot;</p>
+<p>The payload is the object that was passed to the JWT.sign() function</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -158,6 +175,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -172,6 +190,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The payload that was sent to the server.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -183,7 +207,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The user object</p>
+
                     </div>
                 </td>
             </tr>
@@ -200,8 +225,13 @@ import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import enviroment from &#x27;../../env&#x27;;
 import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
 
+/** It&#x27;s a PassportStrategy that uses the JWT strategy to validate the token */
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
+  /**
+   * It takes the token from the request header, checks if it&#x27;s valid, and if it is, it returns the
+   * user&#x27;s id
+   */
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -211,6 +241,13 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
+  /**
+   * &quot;If the payload is valid, return the user object, otherwise throw an error.&quot;
+   *
+   * The payload is the object that was passed to the JWT.sign() function
+   * @param {any} payload - The payload that was sent to the server.
+   * @returns The user object
+   */
   async validate(payload: any) {
     return payload.user;
   }

@@ -21,6 +21,8 @@ import { LoginDto } from './login.dto';
 import { Public } from './public.factory';
 import { RefreshTokenDto } from './refresh-token.dto';
 
+/** It's a REST controller that has a login and refreshToken endpoint, and a me endpoint that requires
+authentication, this controller handles authorization */
 @Controller('auth')
 @UseGuards(ThrottlerGuard)
 @ApiTags('auth')
@@ -29,6 +31,8 @@ export class AuthController {
   @Inject()
   private readonly authService: AuthService;
 
+  /** This is a function that takes a loginDto object as a parameter, and returns the result of the
+login function in the authService. */
   @Post('login')
   @Version('1')
   @ApiUnauthorizedResponse({ description: 'Wrong Credentials' })
@@ -36,6 +40,8 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
+  /** This is a function that takes a refreshTokenDto object as a parameter, and returns the result of the
+refreshToken function in the authService */
   @Post('refreshToken')
   @Version('1')
   @ApiForbiddenResponse({ description: 'Refresh Token is Invalid' })
@@ -43,6 +49,8 @@ export class AuthController {
     return this.authService.refreshToken(refreshTokenDto);
   }
 
+  /** This is a function that takes a request object as a parameter, and returns the result of the
+getCurrentUser function in the authService. */
   @Get('me')
   @Version('1')
   @ApiBearerAuth()

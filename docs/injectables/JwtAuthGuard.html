@@ -62,6 +62,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>If the route is public, then return true, otherwise, return the result of the super class&#39;s
+canActivate method</p>
+
+            </p>
 
 
 
@@ -104,12 +112,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/jwt-auth.guard.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/auth/jwt-auth.guard.ts:9</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The <code>constructor</code> function is a special function that is called when a new instance of the class is
+created</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -118,6 +129,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -132,6 +144,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Reflector</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -167,14 +185,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/auth/jwt-auth.guard.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/auth/jwt-auth.guard.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>If the route is public, return true, otherwise, return the result of the super class&#39;s canActivate
+function</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -185,6 +206,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -199,6 +221,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>ExecutionContext</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -210,7 +238,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A boolean value.</p>
+
                     </div>
                 </td>
             </tr>
@@ -227,12 +256,25 @@ import { Reflector } from &#x27;@nestjs/core&#x27;;
 import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
 import { IS_PUBLIC_KEY } from &#x27;./public.factory&#x27;;
 
+/** If the route is public, then return true, otherwise, return the result of the super class&#x27;s
+canActivate method */
 @Injectable()
 export class JwtAuthGuard extends AuthGuard(&#x27;jwt&#x27;) {
+  /**
+   * The &#x60;constructor&#x60; function is a special function that is called when a new instance of the class is
+   * created
+   * @param {Reflector} reflector - Reflector
+   */
   constructor(private reflector: Reflector) {
     super();
   }
 
+  /**
+   * If the route is public, return true, otherwise, return the result of the super class&#x27;s canActivate
+   * function
+   * @param {ExecutionContext} context - ExecutionContext
+   * @returns A boolean value.
+   */
   canActivate(context: ExecutionContext) {
     const isPublic &#x3D; this.reflector.getAllAndOverride&lt;boolean&gt;(IS_PUBLIC_KEY, [
       context.getHandler(),

@@ -66,6 +66,14 @@
             </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a REST controller that has a login and refreshToken endpoint, and a me endpoint that requires
+authentication, this controller handles authorization</p>
+
+            </p>
 
 
 
@@ -136,14 +144,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/auth/auth.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/auth/auth.controller.ts:39</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a function that takes a loginDto object as a parameter, and returns the result of the
+login function in the authService.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -212,14 +223,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/auth/auth.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/auth/auth.controller.ts:58</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a function that takes a request object as a parameter, and returns the result of the
+getCurrentUser function in the authService.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -284,14 +298,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/auth/auth.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/auth/auth.controller.ts:48</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a function that takes a refreshTokenDto object as a parameter, and returns the result of the
+refreshToken function in the authService</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -360,6 +377,8 @@ import { LoginDto } from &#x27;./login.dto&#x27;;
 import { Public } from &#x27;./public.factory&#x27;;
 import { RefreshTokenDto } from &#x27;./refresh-token.dto&#x27;;
 
+/** It&#x27;s a REST controller that has a login and refreshToken endpoint, and a me endpoint that requires
+authentication, this controller handles authorization */
 @Controller(&#x27;auth&#x27;)
 @UseGuards(ThrottlerGuard)
 @ApiTags(&#x27;auth&#x27;)
@@ -368,6 +387,8 @@ export class AuthController {
   @Inject()
   private readonly authService: AuthService;
 
+  /** This is a function that takes a loginDto object as a parameter, and returns the result of the
+login function in the authService. */
   @Post(&#x27;login&#x27;)
   @Version(&#x27;1&#x27;)
   @ApiUnauthorizedResponse({ description: &#x27;Wrong Credentials&#x27; })
@@ -375,6 +396,8 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
+  /** This is a function that takes a refreshTokenDto object as a parameter, and returns the result of the
+refreshToken function in the authService */
   @Post(&#x27;refreshToken&#x27;)
   @Version(&#x27;1&#x27;)
   @ApiForbiddenResponse({ description: &#x27;Refresh Token is Invalid&#x27; })
@@ -382,6 +405,8 @@ export class AuthController {
     return this.authService.refreshToken(refreshTokenDto);
   }
 
+  /** This is a function that takes a request object as a parameter, and returns the result of the
+getCurrentUser function in the authService. */
   @Get(&#x27;me&#x27;)
   @Version(&#x27;1&#x27;)
   @ApiBearerAuth()

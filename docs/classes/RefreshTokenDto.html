@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a DTO that contains a single property called refresh_token</p>
+
+            </p>
 
 
 
@@ -132,10 +139,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/auth/refresh-token.dto.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/refresh-token.dto.ts:7</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property of the class RefreshTokenDto.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -153,7 +166,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty } from &#x27;class-validator&#x27;;
 
+/** It&#x27;s a DTO that contains a single property called refresh_token */
 export class RefreshTokenDto {
+  /** It&#x27;s a property of the class RefreshTokenDto. */
   @IsNotEmpty()
   refresh_token: string;
 }

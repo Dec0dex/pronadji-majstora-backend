@@ -60,6 +60,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a class that represents a permission, which is a combination of an action and a resource</p>
+
+            </p>
 
 
             <section>
@@ -138,10 +145,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/permission/permission.entity.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/permission/permission.entity.ts:23</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that tells TypeORM to create a column in the database table. This propperty holds information about permission action</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -173,10 +186,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/permission/permission.entity.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/permission/permission.entity.ts:38</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that tells TypeORM to create a column in the database table. This propperty holds
+information about date of creation</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -208,10 +228,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/permission/permission.entity.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/permission/permission.entity.ts:43</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that tells TypeORM to create a column in the database table. This propperty holds
+information about date of update</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -243,10 +270,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/permission/permission.entity.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/permission/permission.entity.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that represents TypeORM primary key of the table.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -278,10 +311,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/permission/permission.entity.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/permission/permission.entity.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that tells TypeORM to create a column in the database table. This propperty holds
+information about permission resource</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -313,10 +353,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/permission/permission.entity.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/permission/permission.entity.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that tells TypeORM to create a many to many relationship in the database. This propperty holds
+information about permission roles</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -325,9 +372,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PermissionAction } from &#x27;../auth/casl-ability.factory&#x27;;
-import { Role } from &#x27;../role/role.entity&#x27;;
-import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Column,
   CreateDateColumn,
   Entity,
@@ -336,25 +381,38 @@ import {
   Unique,
   UpdateDateColumn,
 } from &#x27;typeorm&#x27;;
+import { PermissionAction } from &#x27;../auth/casl-ability.factory&#x27;;
+import { Role } from &#x27;../role/role.entity&#x27;;
 
+/** It&#x27;s a class that represents a permission, which is a combination of an action and a resource */
 @Entity()
 @Unique([&#x27;action&#x27;, &#x27;resource&#x27;])
 export class Permission {
+  /** It&#x27;s a property that represents TypeORM primary key of the table. */
   @PrimaryGeneratedColumn()
   id: number;
 
+  /** It&#x27;s a property that tells TypeORM to create a column in the database table. This propperty holds information about permission action */
   @Column()
   action: PermissionAction;
 
+  /** It&#x27;s a property that tells TypeORM to create a column in the database table. This propperty holds
+  information about permission resource */
   @Column()
   resource: string;
 
+  /** It&#x27;s a property that tells TypeORM to create a many to many relationship in the database. This propperty holds
+    information about permission roles */
   @ManyToMany(() &#x3D;&gt; Role, (roles) &#x3D;&gt; roles.permissions)
   roles: Role[];
 
+  /** It&#x27;s a property that tells TypeORM to create a column in the database table. This propperty holds
+information about date of creation */
   @CreateDateColumn()
   dateCreated: Date;
 
+  /** It&#x27;s a property that tells TypeORM to create a column in the database table. This propperty holds
+  information about date of update */
   @UpdateDateColumn()
   dateUpdated: Date;
 }

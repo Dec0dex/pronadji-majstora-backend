@@ -64,6 +64,14 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>It takes the list of policy handlers from the controller&#39;s metadata, creates an ability for the
+current user, and executes each policy handler</p>
+
+                </p>
 
 
 
@@ -112,12 +120,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/auth/policies.guard.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/auth/policies.guard.ts:13</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The <code>CaslAbilityFactory</code> is a service that creates an instance of the <code>CaslAbility</code> class
+the ability.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -126,6 +137,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -140,6 +152,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>This is a service that allows us to get metadata from a class.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>caslAbilityFactory</td>
@@ -152,6 +170,13 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>This is the factory that will be used to create
+the ability.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -189,14 +214,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/auth/policies.guard.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/auth/policies.guard.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It gets the list of policies from the handler metadata, creates an ability for the user, and then
+executes each policy handler</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -207,6 +235,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -221,6 +250,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>ExecutionContext - This is the context of the request.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -232,7 +267,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A boolean value.</p>
+
                     </div>
                 </td>
             </tr>
@@ -260,14 +296,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/auth/policies.guard.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/auth/policies.guard.ts:54</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>If the handler is a function, call it with the ability as the argument. If the handler is an
+object, call its handle method with the ability as the argument
+execute.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -278,6 +318,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -292,6 +333,13 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>PolicyHandler - this is the policy handler that we&#39;re going to
+execute.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>ability</td>
@@ -304,6 +352,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The ability object that is being checked.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -315,7 +369,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A boolean value</p>
+
                     </div>
                 </td>
             </tr>
@@ -335,13 +390,27 @@ import {
   PolicyHandler,
 } from &#x27;./casl-ability.factory&#x27;;
 
+/** It takes the list of policy handlers from the controller&#x27;s metadata, creates an ability for the
+current user, and executes each policy handler */
 @Injectable()
 export class PoliciesGuard implements CanActivate {
+  /**
+   * The &#x60;CaslAbilityFactory&#x60; is a service that creates an instance of the &#x60;CaslAbility&#x60; class
+   * @param {Reflector} reflector - This is a service that allows us to get metadata from a class.
+   * @param {CaslAbilityFactory} caslAbilityFactory - This is the factory that will be used to create
+   * the ability.
+   */
   constructor(
     private reflector: Reflector,
     private caslAbilityFactory: CaslAbilityFactory,
   ) {}
 
+  /**
+   * It gets the list of policies from the handler metadata, creates an ability for the user, and then
+   * executes each policy handler
+   * @param {ExecutionContext} context - ExecutionContext - This is the context of the request.
+   * @returns A boolean value.
+   */
   async canActivate(context: ExecutionContext): Promise&lt;boolean&gt; {
     const policyHandlers &#x3D;
       this.reflector.get&lt;PolicyHandler[]&gt;(
@@ -357,6 +426,14 @@ export class PoliciesGuard implements CanActivate {
     );
   }
 
+  /**
+   * If the handler is a function, call it with the ability as the argument. If the handler is an
+   * object, call its handle method with the ability as the argument
+   * @param {PolicyHandler} handler - PolicyHandler - this is the policy handler that we&#x27;re going to
+   * execute.
+   * @param {AppAbility} ability - The ability object that is being checked.
+   * @returns A boolean value
+   */
   private execPolicyHandler(handler: PolicyHandler, ability: AppAbility) {
     if (typeof handler &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
       return handler(ability);

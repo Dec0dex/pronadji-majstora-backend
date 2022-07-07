@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a class that defines the shape of the query parameters that will be used to paginate a list of
+items</p>
+
+            </p>
 
 
 
@@ -165,10 +173,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/pagination/page-options.dto.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/pagination/page-options.dto.ts:13</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Defining the shape of the query parameters that will be used to paginate a list of items.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -207,10 +221,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pagination/page-options.dto.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/pagination/page-options.dto.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Defining the shape of the query parameters that will be used to paginate a list of items.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -249,10 +269,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/pagination/page-options.dto.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/pagination/page-options.dto.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Defining the shape of the query parameters that will be used to paginate a list of items.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -284,9 +310,22 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/pagination/page-options.dto.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/pagination/page-options.dto.ts:43</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>The skip function returns the number of records to skip when retrieving data from the database</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -300,12 +339,16 @@ import { Type } from &#x27;class-transformer&#x27;;
 import { IsEnum, IsInt, IsOptional, Max, Min } from &#x27;class-validator&#x27;;
 import { Order } from &#x27;./page-order.model&#x27;;
 
+/** It&#x27;s a class that defines the shape of the query parameters that will be used to paginate a list of
+items */
 export class PageOptionsDto {
+  /** Defining the shape of the query parameters that will be used to paginate a list of items. */
   @ApiPropertyOptional({ enum: Order, default: Order.ASC })
   @IsEnum(Order)
   @IsOptional()
   readonly order?: Order &#x3D; Order.ASC;
 
+  /** Defining the shape of the query parameters that will be used to paginate a list of items. */
   @ApiPropertyOptional({
     minimum: 1,
     default: 1,
@@ -316,6 +359,7 @@ export class PageOptionsDto {
   @IsOptional()
   readonly page?: number &#x3D; 1;
 
+  /** Defining the shape of the query parameters that will be used to paginate a list of items. */
   @ApiPropertyOptional({
     minimum: 1,
     maximum: 100,
@@ -328,6 +372,10 @@ export class PageOptionsDto {
   @IsOptional()
   readonly take?: number &#x3D; 10;
 
+  /**
+   * The skip function returns the number of records to skip when retrieving data from the database
+   * @returns The number of items to skip.
+   */
   get skip(): number {
     return (this.page - 1) * this.take;
   }

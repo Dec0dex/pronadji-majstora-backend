@@ -11,6 +11,7 @@
 <a href="https://www.pronadjimajstora.rs" target="_blank"><img src="https://img.shields.io/badge/license-EUPL%201.2-green" alt="Package License" /></a>
 <a href="https://app.circleci.com/pipelines/github/Dec0dex/pronadji-majstora-backend" target="_blank"><img src="https://img.shields.io/circleci/build/github/Dec0dex/pronadji-majstora-backend" alt="CircleCI" /></a>
 <a href="https://codecov.io/gh/Dec0dex/pronadji-majstora-backend" target="_blank"><img src="https://codecov.io/gh/Dec0dex/pronadji-majstora-backend/branch/master/graph/badge.svg?token=K4MIHCZMIH" alt="CodeCoverage"/></a>
+<a href="https://dec0dex.github.io/pronadji-majstora-backend/" target="_blank"><img src="docs/images/coverage-badge-documentation.svg" alt="DocumentationCoverage"/></a>
 <a href="https://www.pronadjimajstora.rs" target="_blank"><img src="" alt="Discord"/></a>
 </p>
 

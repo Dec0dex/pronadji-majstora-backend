@@ -1,3 +1,4 @@
+/* It's a class that represents a user */
 import { Address } from '../address/address.entity';
 import { Role } from '../role/role.entity';
 import {
@@ -12,6 +13,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+/** A user can have many addresses and many roles */
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()

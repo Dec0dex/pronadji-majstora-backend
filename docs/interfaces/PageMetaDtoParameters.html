@@ -69,6 +69,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Defining the interface for the parameters that will be passed into the PageMetaDto class.</p>
+
+            </p>
 
 
         <section>
@@ -137,6 +144,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The total number of items in the database.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -170,6 +183,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Defining the type of the <code>pageOptionsDto</code> parameter.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -179,8 +198,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PageOptionsDto } from &#x27;./page-options.dto&#x27;;
 
+/** Defining the interface for the parameters that will be passed into the PageMetaDto class. */
 export interface PageMetaDtoParameters {
+  /** Defining the type of the &#x60;pageOptionsDto&#x60; parameter. */
   pageOptionsDto: PageOptionsDto;
+  /** The total number of items in the database. */
   itemCount: number;
 }
 </code></pre>
