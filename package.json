@@ -56,7 +56,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.4.0",
-    "typeorm": "^0.2.45"
+    "typeorm": "^0.3.7"
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.19",
