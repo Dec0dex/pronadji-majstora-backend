@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a class that defines the shape of the data that will be sent to the server when a user is
+created</p>
+
+            </p>
 
 
 
@@ -147,10 +155,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/user/create-user.dto.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/user/create-user.dto.ts:43</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data that is sent to the server. This property holds
+information about user date of birth.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -182,10 +197,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/user/create-user.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/user/create-user.dto.ts:21</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data that is sent to the server. This property holds
+information about user email.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -217,10 +239,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/user/create-user.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/user/create-user.dto.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data that is sent to the server. This property holds
+information about user first name.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -252,10 +281,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/user/create-user.dto.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/user/create-user.dto.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data that is sent to the server. This property holds
+information about user last name.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -281,16 +317,23 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNotEmpty()<br />
+                            @IsNotEmpty()<br />@MinLength(6)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/user/create-user.dto.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/user/create-user.dto.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data that is sent to the server. This property holds
+information about user password.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -316,16 +359,23 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNotEmpty()<br />
+                            @IsNotEmpty()<br />@MinLength(3)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/user/create-user.dto.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/user/create-user.dto.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a decorator that is used to validate the data that is sent to the server. This property holds
+information about user username</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -341,24 +391,46 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsDate, IsEmail, IsNotEmpty, ValidateIf } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  IsDate,
+  IsEmail,
+  IsNotEmpty,
+  MinLength,
+  ValidateIf,
+} from &#x27;class-validator&#x27;;
 
+/** It&#x27;s a class that defines the shape of the data that will be sent to the server when a user is
+created */
 export class CreateUserDto {
+  /** It&#x27;s a decorator that is used to validate the data that is sent to the server. This property holds
+   * information about user username */
   @IsNotEmpty()
+  @MinLength(3)
   username: string;
 
+  /** It&#x27;s a decorator that is used to validate the data that is sent to the server. This property holds
+  information about user email. */
   @IsEmail()
   email: string;
 
+  /** It&#x27;s a decorator that is used to validate the data that is sent to the server. This property holds
+  information about user first name. */
   @IsNotEmpty()
   firstName: string;
 
+  /** It&#x27;s a decorator that is used to validate the data that is sent to the server. This property holds
+    information about user last name. */
   @IsNotEmpty()
   lastName: string;
 
+  /** It&#x27;s a decorator that is used to validate the data that is sent to the server. This property holds
+    information about user password. */
   @IsNotEmpty()
+  @MinLength(6)
   password: string;
 
+  /** It&#x27;s a decorator that is used to validate the data that is sent to the server. This property holds
+    information about user date of birth. */
   @IsDate()
   @ValidateIf((_object, value) &#x3D;&gt; value !&#x3D;&#x3D; null)
   dateOfBirth: Date;

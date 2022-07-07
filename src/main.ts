@@ -9,6 +9,11 @@ import enviroment from 'env';
 import { fastifyHelmet } from 'fastify-helmet';
 import { AppModule } from './app.module';
 
+/**
+ * It creates a new Nest application, sets the global prefix to api, enables versioning, enables CORS,
+ * registers the helmet plugin, and finally starts the application on the port specified in the
+ * environment file
+ */
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,

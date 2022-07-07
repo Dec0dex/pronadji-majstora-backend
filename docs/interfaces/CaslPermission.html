@@ -69,6 +69,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Defining the interface that is used to represent CaslPermission</p>
+
+            </p>
 
 
         <section>
@@ -137,6 +144,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The action for the resource that the permission is for.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -170,6 +183,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The name of the resource that the permission is for.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -182,6 +201,7 @@ import { Injectable, SetMetadata } from &#x27;@nestjs/common&#x27;;
 import { Permission } from &#x27;../permission/permission.entity&#x27;;
 import { User } from &#x27;../user/user.entity&#x27;;
 
+/** Defining the actions that can be performed on a resource. */
 export enum PermissionAction {
   CREATE &#x3D; &#x27;create&#x27;,
   READ &#x3D; &#x27;read&#x27;,
@@ -190,16 +210,27 @@ export enum PermissionAction {
   MANAGE &#x3D; &#x27;manage&#x27;,
 }
 
+/** Defining the type of the second argument of the &#x60;Ability&#x60; class. */
 export type PermissionObjectType &#x3D; any;
+/** Defining the type of the third argument of the &#x60;Ability&#x60; class. */
 export type AppAbility &#x3D; Ability&lt;[PermissionAction, PermissionObjectType]&gt;;
+/** Defining the interface that is used to represent CaslPermission */
 interface CaslPermission {
+  /** The action for the resource that the permission is for. */
   action: PermissionAction;
   // In our database, Invoice, Project... are called &quot;object&quot;
   // but in CASL they are called &quot;subject&quot;
+  /** The name of the resource that the permission is for. */
   subject: string;
 }
+/** It takes a user object and returns a Casl ability object */
 @Injectable()
 export class CaslAbilityFactory {
+  /**
+   * It takes a user and returns an ability object that contains all the permissions that the user has
+   * @param {User} user - User - the user for whom we want to create the ability
+   * @returns An instance of the Ability class.
+   */
   async createForUser(user: User): Promise&lt;AppAbility&gt; {
     const dbPermissions: Permission[] &#x3D; user.roles.reduce(
       (acc, it) &#x3D;&gt; [...acc, ...it.permissions],
@@ -215,15 +246,24 @@ export class CaslAbilityFactory {
   }
 }
 
+/** Defining an interface that is used to create a policy handler. */
 export interface IPolicyHandler {
+  /** A method that is used to check if the user has the permission to perform the action on the
+  resource. */
   handle(ability: AppAbility): boolean;
 }
 
 type PolicyHandlerCallback &#x3D; (ability: AppAbility) &#x3D;&gt; boolean;
 
+/** Defining a type that is used to create a policy handler. */
 export type PolicyHandler &#x3D; IPolicyHandler | PolicyHandlerCallback;
 
+/** A constant that is used to store the metadata of the decorated class or method. */
 export const CHECK_POLICIES_KEY &#x3D; &#x27;check_policy&#x27;;
+/**
+ * It takes a list of policy handlers and adds them to the metadata of the decorated class or method
+ * @param {PolicyHandler[]} handlers - PolicyHandler[] - An array of policy handlers.
+ */
 export const CheckPolicies &#x3D; (...handlers: PolicyHandler[]) &#x3D;&gt;
   SetMetadata(CHECK_POLICIES_KEY, handlers);
 </code></pre>

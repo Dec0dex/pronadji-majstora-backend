@@ -66,6 +66,13 @@
             </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This class is a REST controller that handles all the CRUD operations for the Permission entity</p>
+
+            </p>
 
 
 
@@ -142,14 +149,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/permission/permission.controller.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/permission/permission.controller.ts:66</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a method that is called when a POST request is made to the /permission endpoint.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -218,14 +227,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/permission/permission.controller.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/permission/permission.controller.ts:58</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a method that is called when a DELETE request is made to the /permission/:id endpoint.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -294,14 +305,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/permission/permission.controller.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/permission/permission.controller.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a method that is called when a GET request is made to the /permission endpoint.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -370,14 +383,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/permission/permission.controller.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/permission/permission.controller.ts:50</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This is a method that is called when a GET request is made to the /permission/:id endpoint.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -446,14 +461,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">src/permission/permission.controller.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/permission/permission.controller.ts:74</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Updating the permission.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -526,6 +543,7 @@ import { PageOptionsDto } from &#x27;../pagination/page-options.dto&#x27;;
 import { PermissionDto } from &#x27;./permission.dto&#x27;;
 import { PermissionService } from &#x27;./permission.service&#x27;;
 
+/** This class is a REST controller that handles all the CRUD operations for the Permission entity */
 @Controller(&#x27;permission&#x27;)
 @ApiTags(&#x27;permission&#x27;)
 @UseGuards(PoliciesGuard)
@@ -535,6 +553,7 @@ export class PermissionController {
   @Inject()
   private permissionService: PermissionService;
 
+  /** This is a method that is called when a GET request is made to the /permission endpoint. */
   @Get()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new ReadPermissionPolicyHandler())
@@ -542,6 +561,7 @@ export class PermissionController {
     return this.permissionService.findAllPermissionsPageable(pageOptionsDto);
   }
 
+  /** This is a method that is called when a GET request is made to the /permission/:id endpoint. */
   @Get(&#x27;:id&#x27;)
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new ReadPermissionPolicyHandler())
@@ -549,6 +569,7 @@ export class PermissionController {
     return this.permissionService.findPermissionById(id);
   }
 
+  /** This is a method that is called when a DELETE request is made to the /permission/:id endpoint. */
   @Delete(&#x27;:id&#x27;)
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new DeletePermissionPolicyHandler())
@@ -556,6 +577,7 @@ export class PermissionController {
     return this.permissionService.deletePermissionById(id);
   }
 
+  /** This is a method that is called when a POST request is made to the /permission endpoint. */
   @Post()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new CreatePermissionPolicyHandler())
@@ -563,6 +585,7 @@ export class PermissionController {
     return this.permissionService.createPermission(permissionDto);
   }
 
+  /** Updating the permission. */
   @Put()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new UpdatePermissionPolicyHandler())

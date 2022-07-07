@@ -7,11 +7,18 @@ import { Repository } from 'typeorm';
 import { PermissionDto } from './permission.dto';
 import { Permission } from './permission.entity';
 
+/** It's a service class that provides methods for CRUD operations on the Permission entity */
 @Injectable()
 export class PermissionService {
+  /** It's a TypeORM Repository that provides methods for CRUD operations on the Permission entity. */
   @InjectRepository(Permission)
   private permissionRepository: Repository<Permission>;
 
+  /**
+   * It returns a page of permissions
+   * @param {PageOptionsDto} pageOptionsDto - This is a class that contains the following properties:
+   * @returns A PageDto object with a list of PermissionDto objects and a PageMetaDto object.
+   */
   async findAllPermissionsPageable(
     pageOptionsDto: PageOptionsDto,
   ): Promise<PageDto<PermissionDto>> {
@@ -41,6 +48,11 @@ export class PermissionService {
     );
   }
 
+  /**
+   * It finds a permission by its id and returns it as a PermissionDto
+   * @param {number} id - number - the id of the permission we want to find
+   * @returns A PermissionDto object
+   */
   async findPermissionById(id: number): Promise<PermissionDto> {
     const result = await this.permissionRepository.findOne(id);
     if (result) {
@@ -54,6 +66,11 @@ export class PermissionService {
     }
   }
 
+  /**
+   * It deletes a permission from the database by its id
+   * @param {number} id - number - The id of the permission to be deleted
+   * @returns The result of the delete operation.
+   */
   async deletePermissionById(id: number) {
     const result = await this.permissionRepository.findOne(id);
     if (result) {
@@ -65,6 +82,12 @@ export class PermissionService {
     }
   }
 
+  /**
+   * It creates a new permission and returns it
+   * @param {PermissionDto} permissionDto - PermissionDto - This is the DTO that we're going to use to
+   * create the permission.
+   * @returns A PermissionDto
+   */
   async createPermission(permissionDto: PermissionDto): Promise<PermissionDto> {
     const permission = await this.permissionRepository.save(
       permissionDto.toModel(),
@@ -74,6 +97,12 @@ export class PermissionService {
     return dto;
   }
 
+  /**
+   * It updates a permission in the database
+   * @param {PermissionDto} permissionDto - PermissionDto - This is the DTO that we're going to use to
+   * update the permission.
+   * @returns A PermissionDto
+   */
   async updatePermission(permissionDto: PermissionDto): Promise<PermissionDto> {
     await this.permissionRepository.save(permissionDto.toModel());
     const permission = await this.permissionRepository.findOne(

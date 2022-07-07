@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a class that has two properties, usernameOrEmail and password, and both of them are required
+and have a minimum length of 3 and 6 respectively</p>
+
+            </p>
 
 
 
@@ -129,16 +137,22 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNotEmpty()<br />
+                            @IsNotEmpty()<br />@MinLength(6)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/login.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/auth/login.dto.ts:15</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that is required and has a minimum length of 6.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -164,16 +178,22 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNotEmpty()<br />
+                            @IsNotEmpty()<br />@MinLength(3)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/auth/login.dto.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/auth/login.dto.ts:10</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that is required and has a minimum length of 3.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -189,13 +209,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, MinLength } from &#x27;class-validator&#x27;;
 
+/** It&#x27;s a class that has two properties, usernameOrEmail and password, and both of them are required
+and have a minimum length of 3 and 6 respectively */
 export class LoginDto {
+  /** It&#x27;s a property that is required and has a minimum length of 3. */
   @IsNotEmpty()
+  @MinLength(3)
   usernameOrEmail: string;
 
+  /** It&#x27;s a property that is required and has a minimum length of 6. */
   @IsNotEmpty()
+  @MinLength(6)
   password: string;
 }
 </code></pre>

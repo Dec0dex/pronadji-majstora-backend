@@ -11,6 +11,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+/** It's a class that represents a role, and it has a name, permissions, users, and dates for when it
+was created and updated. A Role can have many Permissions and many Users */
 @Entity()
 export class Role {
   @PrimaryGeneratedColumn()

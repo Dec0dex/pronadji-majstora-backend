@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a service class that provides methods for CRUD operations on the Permission entity</p>
+
+            </p>
 
 
 
@@ -153,14 +160,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">src/permission/permission.service.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/permission/permission.service.ts:91</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It creates a new permission and returns it
+create the permission.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -171,6 +181,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -185,6 +196,13 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>PermissionDto - This is the DTO that we&#39;re going to use to
+create the permission.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -196,7 +214,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A PermissionDto</p>
+
                     </div>
                 </td>
             </tr>
@@ -224,14 +243,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/permission/permission.service.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/permission/permission.service.ts:74</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It deletes a permission from the database by its id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -242,6 +263,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -256,6 +278,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>number - The id of the permission to be deleted</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -267,7 +295,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The result of the delete operation.</p>
+
                     </div>
                 </td>
             </tr>
@@ -295,14 +324,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/permission/permission.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/permission/permission.service.ts:22</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It returns a page of permissions</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -313,6 +344,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -327,6 +359,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>This is a class that contains the following properties:</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -338,7 +376,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A PageDto object with a list of PermissionDto objects and a PageMetaDto object.</p>
+
                     </div>
                 </td>
             </tr>
@@ -366,14 +405,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/permission/permission.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/permission/permission.service.ts:56</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It finds a permission by its id and returns it as a PermissionDto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -384,6 +425,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -398,6 +440,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>number - the id of the permission we want to find</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -409,7 +457,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A PermissionDto object</p>
+
                     </div>
                 </td>
             </tr>
@@ -437,14 +486,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/permission/permission.service.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/permission/permission.service.ts:106</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It updates a permission in the database
+update the permission.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -455,6 +507,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -469,6 +522,13 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>PermissionDto - This is the DTO that we&#39;re going to use to
+update the permission.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -480,7 +540,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A PermissionDto</p>
+
                     </div>
                 </td>
             </tr>
@@ -521,10 +582,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/permission/permission.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/permission/permission.service.ts:15</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a TypeORM Repository that provides methods for CRUD operations on the Permission entity.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -543,11 +610,18 @@ import { Repository } from &#x27;typeorm&#x27;;
 import { PermissionDto } from &#x27;./permission.dto&#x27;;
 import { Permission } from &#x27;./permission.entity&#x27;;
 
+/** It&#x27;s a service class that provides methods for CRUD operations on the Permission entity */
 @Injectable()
 export class PermissionService {
+  /** It&#x27;s a TypeORM Repository that provides methods for CRUD operations on the Permission entity. */
   @InjectRepository(Permission)
   private permissionRepository: Repository&lt;Permission&gt;;
 
+  /**
+   * It returns a page of permissions
+   * @param {PageOptionsDto} pageOptionsDto - This is a class that contains the following properties:
+   * @returns A PageDto object with a list of PermissionDto objects and a PageMetaDto object.
+   */
   async findAllPermissionsPageable(
     pageOptionsDto: PageOptionsDto,
   ): Promise&lt;PageDto&lt;PermissionDto&gt;&gt; {
@@ -577,6 +651,11 @@ export class PermissionService {
     );
   }
 
+  /**
+   * It finds a permission by its id and returns it as a PermissionDto
+   * @param {number} id - number - the id of the permission we want to find
+   * @returns A PermissionDto object
+   */
   async findPermissionById(id: number): Promise&lt;PermissionDto&gt; {
     const result &#x3D; await this.permissionRepository.findOne(id);
     if (result) {
@@ -590,6 +669,11 @@ export class PermissionService {
     }
   }
 
+  /**
+   * It deletes a permission from the database by its id
+   * @param {number} id - number - The id of the permission to be deleted
+   * @returns The result of the delete operation.
+   */
   async deletePermissionById(id: number) {
     const result &#x3D; await this.permissionRepository.findOne(id);
     if (result) {
@@ -601,6 +685,12 @@ export class PermissionService {
     }
   }
 
+  /**
+   * It creates a new permission and returns it
+   * @param {PermissionDto} permissionDto - PermissionDto - This is the DTO that we&#x27;re going to use to
+   * create the permission.
+   * @returns A PermissionDto
+   */
   async createPermission(permissionDto: PermissionDto): Promise&lt;PermissionDto&gt; {
     const permission &#x3D; await this.permissionRepository.save(
       permissionDto.toModel(),
@@ -610,6 +700,12 @@ export class PermissionService {
     return dto;
   }
 
+  /**
+   * It updates a permission in the database
+   * @param {PermissionDto} permissionDto - PermissionDto - This is the DTO that we&#x27;re going to use to
+   * update the permission.
+   * @returns A PermissionDto
+   */
   async updatePermission(permissionDto: PermissionDto): Promise&lt;PermissionDto&gt; {
     await this.permissionRepository.save(permissionDto.toModel());
     const permission &#x3D; await this.permissionRepository.findOne(

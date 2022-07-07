@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a class that defines the shape of the data that will be sent to the server when a user assigns
+permissions to a role</p>
+
+            </p>
 
 
 
@@ -135,10 +143,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/role/asign-role-permissions.dto.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/role/asign-role-permissions.dto.ts:14</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s an array of numbers that represnets permissions to be assigned to to the role.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -170,10 +184,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/role/asign-role-permissions.dto.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/role/asign-role-permissions.dto.ts:9</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that will be sent to the server when a user assigns permissions to a specific role id.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -191,11 +211,15 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, IsNumber } from &#x27;class-validator&#x27;;
 
+/** It&#x27;s a class that defines the shape of the data that will be sent to the server when a user assigns
+permissions to a role */
 export class AssignRolePermissionsQuery {
+  /** It&#x27;s a property that will be sent to the server when a user assigns permissions to a specific role id. */
   @IsNumber()
   @IsNotEmpty()
   roleId: number;
 
+  /** It&#x27;s an array of numbers that represnets permissions to be assigned to to the role. */
   @IsNotEmpty()
   @IsNumber({}, { each: true })
   permissionIds: number[];

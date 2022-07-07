@@ -1,6 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import enviroment from '../../env';
 
+/** A configuration for typeorm. */
 const postgressConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: enviroment.POSTGRES_HOST, // localhost
@@ -36,4 +37,5 @@ const postgressConfig: TypeOrmModuleOptions = {
   },
 };
 
+/* Exporting the postgressConfig object. */
 export default postgressConfig;

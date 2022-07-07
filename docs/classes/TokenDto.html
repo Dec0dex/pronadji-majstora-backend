@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This class is a data transfer object (DTO) that represents the access and refresh tokens returned by
+the server.</p>
+
+            </p>
 
 
 
@@ -112,12 +120,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/auth/token.dto.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/token.dto.ts:7</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor function is a special function that is called when an object is created from a
+class
+code exchange.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -126,6 +138,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -140,6 +153,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The access token that you get from the Spotify API.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>refresh_token</td>
@@ -152,6 +171,13 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The refresh token that was returned from the initial authorization
+code exchange.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -186,10 +212,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/auth/token.dto.ts:3</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/auth/token.dto.ts:5</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A property that holds information about access token</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -212,10 +244,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/auth/token.dto.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/token.dto.ts:7</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A property that holds information about refresh token.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -232,9 +270,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class TokenDto {
+  /** A property that holds information about access token */
   access_token: string;
+  /** A property that holds information about refresh token. */
   refresh_token: string;
 
+  /**
+   * The constructor function is a special function that is called when an object is created from a
+   * class
+   * @param {string} access_token - The access token that you get from the Spotify API.
+   * @param {string} refresh_token - The refresh token that was returned from the initial authorization
+   * code exchange.
+   */
   constructor(access_token: string, refresh_token: string) {
     this.access_token &#x3D; access_token;
     this.refresh_token &#x3D; refresh_token;

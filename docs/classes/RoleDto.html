@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a DTO that represents a Role entity</p>
+
+            </p>
 
 
 
@@ -149,10 +156,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/role/role.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/role/role.dto.ts:12</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that is used to store the date when the role was created.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -175,10 +188,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/role/role.dto.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/role/role.dto.ts:14</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that is used to store the date when the role was updated.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -201,10 +220,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/role/role.dto.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/role/role.dto.ts:7</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that is used to store the id of the role.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -236,10 +261,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/role/role.dto.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/role/role.dto.ts:10</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that is used to store the name of the role.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -270,14 +301,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/role/role.dto.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/role/role.dto.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a Role object and copies the values of its properties to the properties of the current
+object</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -288,6 +322,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -302,6 +337,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>Role - this is the model that we are converting from</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -339,17 +380,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/role/role.dto.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/role/role.dto.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It converts a RoleDto object to a Role object</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../entitys/Role.html" target="_self" >Role</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>A Role object</p>
 
                     </div>
                 </td>
@@ -369,13 +418,22 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty } from &#x27;class-validator&#x27;;
 import { Role } from &#x27;./role.entity&#x27;;
 
+/** It&#x27;s a DTO that represents a Role entity */
 export class RoleDto {
+  /** It&#x27;s a property that is used to store the id of the role. */
   id: number | null;
+  /** It&#x27;s a property that is used to store the name of the role. */
   @IsNotEmpty()
   name: string;
+  /** It&#x27;s a property that is used to store the date when the role was created. */
   dateCreated: Date | null;
+  /** It&#x27;s a property that is used to store the date when the role was updated. */
   dateUpdated: Date | null;
 
+  /**
+   * It converts a RoleDto object to a Role object
+   * @returns A Role object
+   */
   toModel(): Role {
     const role &#x3D; new Role();
     role.id &#x3D; this.id;
@@ -383,6 +441,11 @@ export class RoleDto {
     return role;
   }
 
+  /**
+   * It takes a Role object and copies the values of its properties to the properties of the current
+   * object
+   * @param {Role} role - Role - this is the model that we are converting from
+   */
   fromModel(role: Role) {
     this.id &#x3D; role.id;
     this.name &#x3D; role.name;

@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a class that defines the shape of the query parameters that will be passed to the
+assignRoleUsers() method</p>
+
+            </p>
 
 
 
@@ -135,10 +143,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/role/asign-role-users.dto.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/role/asign-role-users.dto.ts:9</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s a property that will be passed to the assignRoleUsers() method and represents the role id to assign users to.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -170,10 +184,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/role/asign-role-users.dto.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/role/asign-role-users.dto.ts:14</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>It&#39;s an array of numbers that represents the list of users to assign to role.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -191,11 +211,15 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, IsNumber } from &#x27;class-validator&#x27;;
 
+/** It&#x27;s a class that defines the shape of the query parameters that will be passed to the
+assignRoleUsers() method */
 export class AssignRoleUsersQuery {
+  /** It&#x27;s a property that will be passed to the assignRoleUsers() method and represents the role id to assign users to. */
   @IsNumber()
   @IsNotEmpty()
   roleId: number;
 
+  /** It&#x27;s an array of numbers that represents the list of users to assign to role. */
   @IsNotEmpty()
   @IsNumber({}, { each: true })
   userIds: number[];

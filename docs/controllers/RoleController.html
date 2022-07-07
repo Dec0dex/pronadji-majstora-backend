@@ -66,6 +66,13 @@
             </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>It&#39;s a REST controller that handles CRUD operations for the Role entity</p>
+
+            </p>
 
 
 
@@ -142,20 +149,22 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;assignPermissions&#x27;)<br />@Version(&#x27;1&#x27;)<br />@Put()<br />@Version(&#x27;1&#x27;)<br />@CheckPolicies(new UpdateRolePolicyHandler())<br /></code>
+                    <code>@Post(&#x27;assignPermissions&#x27;)<br />@Version(&#x27;1&#x27;)<br />@CheckPolicies(new UpdateRolePolicyHandler())<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">src/role/role.controller.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/role/role.controller.ts:112</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a roleId and an array of permissionIds as query parameters, and returns a boolean value</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -166,6 +175,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -180,6 +190,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>AssignRolePermissionsQuery</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -191,7 +207,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The return type is a Promise of type Role.</p>
+
                     </div>
                 </td>
             </tr>
@@ -218,20 +235,23 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;assignUsers&#x27;)<br />@Version(&#x27;1&#x27;)<br />@Put()<br />@Version(&#x27;1&#x27;)<br />@CheckPolicies(new UpdateRolePolicyHandler())<br /></code>
+                    <code>@Post(&#x27;assignUsers&#x27;)<br />@Version(&#x27;1&#x27;)<br />@CheckPolicies(new UpdateRolePolicyHandler())<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/role/role.controller.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/role/role.controller.ts:128</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a query parameter called <code>roleId</code> and an array of user ids called <code>userIds</code> and assigns the
+users to the role</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -242,6 +262,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -256,6 +277,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>AssignRoleUsersQuery</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -267,7 +294,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The return type is a Promise of an array of Role objects.</p>
+
                     </div>
                 </td>
             </tr>
@@ -300,14 +328,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/role/role.controller.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/role/role.controller.ts:87</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The function takes a roleDto object as a parameter, and returns the result of the createRole
+function in the roleService</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -318,6 +349,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -332,6 +364,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>This is the object that will be passed to the createRole() method.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -343,7 +381,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The createRole method is being returned.</p>
+
                     </div>
                 </td>
             </tr>
@@ -376,14 +415,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/role/role.controller.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/role/role.controller.ts:74</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes an id as a parameter, and then calls the deleteRoleById() function in the roleService</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -394,6 +435,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -408,6 +450,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The id of the role to be deleted.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -419,7 +467,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The deleteRoleById method is being called on the roleService.</p>
+
                     </div>
                 </td>
             </tr>
@@ -452,14 +501,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/role/role.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/role/role.controller.ts:49</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a query parameter, pageOptionsDto, and passes it to the
+roleService.findAllRolesPageable() function</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -470,6 +522,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -484,6 +537,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>PageOptionsDto</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -495,7 +554,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>A pageable list of roles.</p>
+
                     </div>
                 </td>
             </tr>
@@ -528,14 +588,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/role/role.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/role/role.controller.ts:62</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The function takes in a parameter called id, which is a number, and then returns the result of the
+findRoleById function in the roleService</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -546,6 +609,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -560,6 +624,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The id of the role to be retrieved.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -571,7 +641,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The role with the given id.</p>
+
                     </div>
                 </td>
             </tr>
@@ -604,14 +675,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">src/role/role.controller.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/role/role.controller.ts:100</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It takes a roleDto object as a parameter, and then passes it to the roleService.updateRole()
+function</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -622,6 +696,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -636,6 +711,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>This is the object that will be passed to the method.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -647,7 +728,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The return type is a Promise of type Role.</p>
+
                     </div>
                 </td>
             </tr>
@@ -686,6 +768,7 @@ import { AssignRoleUsersQuery } from &#x27;./asign-role-users.dto&#x27;;
 import { RoleDto } from &#x27;./role.dto&#x27;;
 import { RoleService } from &#x27;./role.service&#x27;;
 
+/** It&#x27;s a REST controller that handles CRUD operations for the Role entity */
 @Controller(&#x27;role&#x27;)
 @ApiTags(&#x27;role&#x27;)
 @UseGuards(PoliciesGuard)
@@ -695,6 +778,12 @@ export class RoleController {
   @Inject()
   private roleService: RoleService;
 
+  /**
+   * It takes a query parameter, pageOptionsDto, and passes it to the
+   * roleService.findAllRolesPageable() function
+   * @param {PageOptionsDto} pageOptionsDto - PageOptionsDto
+   * @returns A pageable list of roles.
+   */
   @Get()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new ReadRolePolicyHandler())
@@ -702,6 +791,12 @@ export class RoleController {
     return this.roleService.findAllRolesPageable(pageOptionsDto);
   }
 
+  /**
+   * The function takes in a parameter called id, which is a number, and then returns the result of the
+   * findRoleById function in the roleService
+   * @param {number} id - The id of the role to be retrieved.
+   * @returns The role with the given id.
+   */
   @Get(&#x27;:id&#x27;)
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new ReadRolePolicyHandler())
@@ -709,6 +804,11 @@ export class RoleController {
     return this.roleService.findRoleById(id);
   }
 
+  /**
+   * It takes an id as a parameter, and then calls the deleteRoleById() function in the roleService
+   * @param {number} id - The id of the role to be deleted.
+   * @returns The deleteRoleById method is being called on the roleService.
+   */
   @Delete(&#x27;:id&#x27;)
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new DeleteRolePolicyHandler())
@@ -716,6 +816,12 @@ export class RoleController {
     return this.roleService.deleteRoleById(id);
   }
 
+  /**
+   * The function takes a roleDto object as a parameter, and returns the result of the createRole
+   * function in the roleService
+   * @param {RoleDto} roleDto - This is the object that will be passed to the createRole() method.
+   * @returns The createRole method is being returned.
+   */
   @Post()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new CreateRolePolicyHandler())
@@ -723,6 +829,12 @@ export class RoleController {
     return this.roleService.createRole(roleDto);
   }
 
+  /**
+   * It takes a roleDto object as a parameter, and then passes it to the roleService.updateRole()
+   * function
+   * @param {RoleDto} roleDto - This is the object that will be passed to the method.
+   * @returns The return type is a Promise of type Role.
+   */
   @Put()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new UpdateRolePolicyHandler())
@@ -730,9 +842,12 @@ export class RoleController {
     return this.roleService.updateRole(roleDto);
   }
 
+  /**
+   * It takes a roleId and an array of permissionIds as query parameters, and returns a boolean value
+   * @param {AssignRolePermissionsQuery} queryParams - AssignRolePermissionsQuery
+   * @returns The return type is a Promise of type Role.
+   */
   @Post(&#x27;assignPermissions&#x27;)
-  @Version(&#x27;1&#x27;)
-  @Put()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new UpdateRolePolicyHandler())
   assignPermissions(@Query() queryParams: AssignRolePermissionsQuery) {
@@ -742,9 +857,13 @@ export class RoleController {
     );
   }
 
+  /**
+   * It takes a query parameter called &#x60;roleId&#x60; and an array of user ids called &#x60;userIds&#x60; and assigns the
+   * users to the role
+   * @param {AssignRoleUsersQuery} queryParams - AssignRoleUsersQuery
+   * @returns The return type is a Promise of an array of Role objects.
+   */
   @Post(&#x27;assignUsers&#x27;)
-  @Version(&#x27;1&#x27;)
-  @Put()
   @Version(&#x27;1&#x27;)
   @CheckPolicies(new UpdateRolePolicyHandler())
   assignUsers(@Query() queryParams: AssignRoleUsersQuery) {
