@@ -12,9 +12,10 @@ describe('PermissionService', () => {
   let service: PermissionService;
   const mockedRepository = {
     save: jest.fn((permission: Permission) => permission),
-    delete: jest.fn((id: number) => {
-      if (id == -1) return undefined;
-      return id;
+    update: jest.fn((options, permission: Permission) => permission),
+    remove: jest.fn((permission: Permission) => {
+      if (permission.id == -1) return undefined;
+      return permission.id;
     }),
     findOne: jest.fn((id: number) => {
       if (id == -1) return undefined;
@@ -72,7 +73,7 @@ describe('PermissionService', () => {
 
   it('should delete permisison by id', async () => {
     expect(await service.deletePermissionById(1)).toEqual(1);
-    expect(mockedRepository.delete).toHaveBeenCalledWith(1);
+    expect(mockedRepository.remove).toHaveBeenCalled();
   });
 
   it('should create permission', async () => {
@@ -84,7 +85,10 @@ describe('PermissionService', () => {
   it('should update permission', async () => {
     const dto = new PermissionDto();
     expect(await service.updatePermission(dto)).toEqual(dto);
-    expect(mockedRepository.save).toHaveBeenCalledWith(dto.toModel());
+    expect(mockedRepository.update).toHaveBeenCalledWith(
+      { id: dto.id },
+      dto.toModel(),
+    );
   });
 
   it('should not find permission by id', async () => {

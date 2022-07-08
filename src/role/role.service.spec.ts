@@ -14,9 +14,10 @@ describe('RoleService', () => {
   let service: RoleService;
   const mockedRoleRepository = {
     save: jest.fn((role: Role) => role),
-    delete: jest.fn((id: number) => {
-      if (id == -1) return undefined;
-      return id;
+    update: jest.fn((options, role: Role) => role),
+    remove: jest.fn((role: Role) => {
+      if (role.id == -1) return undefined;
+      return role.id;
     }),
     findOne: jest.fn((id: number) => {
       if (id == -1) return undefined;
@@ -97,7 +98,7 @@ describe('RoleService', () => {
 
   it('should delete role by id', async () => {
     expect(await service.deleteRoleById(1)).toEqual(1);
-    expect(mockedRoleRepository.delete).toHaveBeenCalledWith(1);
+    expect(mockedRoleRepository.remove).toHaveBeenCalled();
   });
 
   it('should create role', async () => {
@@ -109,7 +110,10 @@ describe('RoleService', () => {
   it('should update role', async () => {
     const dto = new RoleDto();
     expect(await service.updateRole(dto)).toEqual(dto);
-    expect(mockedRoleRepository.save).toHaveBeenCalledWith(dto.toModel());
+    expect(mockedRoleRepository.update).toHaveBeenCalledWith(
+      { id: dto.id },
+      dto.toModel(),
+    );
   });
 
   it('should not find role by id', async () => {
