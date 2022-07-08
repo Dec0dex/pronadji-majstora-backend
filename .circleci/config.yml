@@ -16,6 +16,9 @@ jobs:
           name: 'Run Tests'
           command: npm run test
       - run:
+          name: 'Run E2E Tests'
+          command: npm run test:e2e
+      - run:
           name: 'Run Test Coverage'
           command: npm run test:cov
       - codecov/upload

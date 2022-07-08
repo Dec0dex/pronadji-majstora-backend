@@ -1,14 +1,21 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import sqliteTestingConfig from './config/sqlite.config';
+import { HealthModule } from '../src/health/health.module';
 import request from 'supertest';
-import { AppModule } from '../src/app.module';
+import { ThrottlerModule } from '@nestjs/throttler';
 
-describe('AppController (e2e)', () => {
+describe('HealthController (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [
+        HealthModule,
+        TypeOrmModule.forRoot(sqliteTestingConfig),
+        ThrottlerModule.forRoot({ ttl: 60, limit: 10 }),
+      ],
     }).compile();
 
     app = moduleFixture.createNestApplication();

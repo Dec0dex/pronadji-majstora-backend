@@ -48,6 +48,7 @@ export class User {
   @OneToMany(() => Address, (address) => address.user, {
     nullable: true,
     eager: true,
+    onDelete: 'CASCADE',
   })
   addresses: Address[];
 

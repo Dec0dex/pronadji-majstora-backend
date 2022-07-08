@@ -84,7 +84,7 @@ export class RoleService {
   async deleteRoleById(id: number) {
     const result = await this.roleRepository.findOne(id);
     if (result) {
-      return this.roleRepository.delete(id);
+      return this.roleRepository.remove(result);
     } else {
       throw new NotFoundException(
         'An role with id: ' + id + ' has not been found in database',
@@ -111,7 +111,7 @@ export class RoleService {
    * @returns A RoleDto
    */
   async updateRole(roleDto: RoleDto): Promise<RoleDto> {
-    await this.roleRepository.save(roleDto.toModel());
+    await this.roleRepository.update({ id: roleDto.id }, roleDto.toModel());
     const role = await this.roleRepository.findOne(roleDto.id);
     const dto = new RoleDto();
     dto.fromModel(role);

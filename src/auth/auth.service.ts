@@ -36,8 +36,8 @@ export class AuthService {
     password: string,
   ): Promise<User | null> {
     const user = await this.userService.findByUsernameOrEmail(usernameOrEmail);
-    await user.roles;
     if (user && comparePasswords(password, user.password)) {
+      await user.roles;
       return user;
     } else {
       return null;
@@ -114,8 +114,8 @@ export class AuthService {
    * @returns The user object
    */
   async getCurrentUser(authHeader: string): Promise<User> {
-    const token = authHeader.replace('Bearer ', '');
     try {
+      const token = authHeader.replace('Bearer ', '');
       return this.jwtService.verify(token, {
         issuer: enviroment.APP_URL,
         secret: enviroment.ACCESS_TOKEN_SECRET,

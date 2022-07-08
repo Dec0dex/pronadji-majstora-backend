@@ -74,7 +74,7 @@ export class PermissionService {
   async deletePermissionById(id: number) {
     const result = await this.permissionRepository.findOne(id);
     if (result) {
-      return this.permissionRepository.delete(id);
+      return this.permissionRepository.remove(result);
     } else {
       throw new NotFoundException(
         'An permission with id: ' + id + ' has not been found in database',
@@ -104,7 +104,10 @@ export class PermissionService {
    * @returns A PermissionDto
    */
   async updatePermission(permissionDto: PermissionDto): Promise<PermissionDto> {
-    await this.permissionRepository.save(permissionDto.toModel());
+    await this.permissionRepository.update(
+      { id: permissionDto.id },
+      permissionDto.toModel(),
+    );
     const permission = await this.permissionRepository.findOne(
       permissionDto.id,
     );

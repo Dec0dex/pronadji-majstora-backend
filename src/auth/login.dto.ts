@@ -11,6 +11,6 @@ export class LoginDto {
 
   /** It's a property that is required and has a minimum length of 6. */
   @IsNotEmpty()
-  @MinLength(6)
+  @MinLength(5)
   password: string;
 }
