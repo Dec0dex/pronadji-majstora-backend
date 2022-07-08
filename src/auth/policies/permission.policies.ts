@@ -18,7 +18,7 @@ export class ReadPermissionPolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.READ, Permission);
+    return ability.can(PermissionAction.READ, 'Permission');
   }
 }
 
@@ -36,7 +36,7 @@ export class CreatePermissionPolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.CREATE, Permission);
+    return ability.can(PermissionAction.CREATE, 'Permission');
   }
 }
 
@@ -49,7 +49,7 @@ export class UpdatePermissionPolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.UPDATE, Permission);
+    return ability.can(PermissionAction.UPDATE, 'Permission');
   }
 }
 
@@ -67,6 +67,6 @@ export class DeletePermissionPolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.DELETE, Permission);
+    return ability.can(PermissionAction.DELETE, 'Permission');
   }
 }

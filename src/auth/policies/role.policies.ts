@@ -17,7 +17,7 @@ export class ReadRolePolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.READ, Role);
+    return ability.can(PermissionAction.READ, 'Role');
   }
 }
 
@@ -34,7 +34,7 @@ export class CreateRolePolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.CREATE, Role);
+    return ability.can(PermissionAction.CREATE, 'Role');
   }
 }
 
@@ -56,7 +56,7 @@ export class UpdateRolePolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.UPDATE, Role);
+    return ability.can(PermissionAction.UPDATE, 'Role');
   }
 }
 
@@ -73,6 +73,6 @@ export class DeleteRolePolicyHandler implements IPolicyHandler {
    * @returns A boolean value.
    */
   handle(ability: AppAbility) {
-    return ability.can(PermissionAction.DELETE, Role);
+    return ability.can(PermissionAction.DELETE, 'Role');
   }
 }

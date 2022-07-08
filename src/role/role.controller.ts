@@ -106,7 +106,7 @@ export class RoleController {
    * @param {AssignRolePermissionsQuery} queryParams - AssignRolePermissionsQuery
    * @returns The return type is a Promise of type Role.
    */
-  @Post('assignPermissions')
+  @Put('assignPermissions')
   @Version('1')
   @CheckPolicies(new UpdateRolePolicyHandler())
   assignPermissions(@Query() queryParams: AssignRolePermissionsQuery) {
@@ -122,7 +122,7 @@ export class RoleController {
    * @param {AssignRoleUsersQuery} queryParams - AssignRoleUsersQuery
    * @returns The return type is a Promise of an array of Role objects.
    */
-  @Post('assignUsers')
+  @Put('assignUsers')
   @Version('1')
   @CheckPolicies(new UpdateRolePolicyHandler())
   assignUsers(@Query() queryParams: AssignRoleUsersQuery) {
